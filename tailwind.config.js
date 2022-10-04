@@ -15,9 +15,9 @@ module.exports = {
   //   },
   // },
   purge: [
-    './components/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
-    './styles/*.sass',
+    './src/styles/*.sass',
   ],
   // content: [
   //   './pages/**/*.{js,ts,jsx,tsx}',
