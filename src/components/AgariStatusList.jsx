@@ -1,82 +1,38 @@
-import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { yakuList, nakiStatus, oyaStatus } from '../../states/atoms/stateAtom'
-
+import React, { useCallback } from 'react'
 import { ItemSelectRadio } from './ItemSelectRadio'
-import { Card } from './Card'
-import { CardTitle } from './CardTitle'
-import { CardDescription } from './CardDescription'
 
-export const AgariStatusList = ({
-  items,
-  questionType,
-  setStatus,
-  disable,
-}) => {
-  const setYakuStatus = useSetRecoilState(yakuList)
+import { useUpdateAgariState } from '../hooks/useUpdateAgariState'
+import { useUpdateYakuDisabledState } from '../hooks/useUpdateYakuState'
+import { useChangeRadioLabelColor } from '../hooks/useChangeLabelColor'
 
-  const updateCheckState = (value, disable) => {
-    if (value === 1) {
-      setStatus((prev) => {
-        const newStatusList = { ...prev }
-        return { ...newStatusList, status: true }
-      })
-      setYakuStatus((prev) => {
-        let newList = prev.map((item) => {
-          const newVal = item[disable] && {
-            ...item,
-            IsChecked: false,
-            IsDisabled: true,
-          }
-          return newVal || item
-        })
-        return newList
-      })
-    } else if (value === 2) {
-      setStatus((prev) => {
-        const newStatusList = { ...prev }
-        return { ...newStatusList, status: false }
-      })
-      setYakuStatus((prev) => {
-        let newList = prev.map((item) => {
-          const newVal = item[disable] && {
-            ...item,
-            IsDisabled: false,
-          }
-          return newVal || item
-        })
-        return newList
-      })
-    }
-  }
+export const AgariStatusList = React.memo(
+  ({ items, questionType, setAgariState, disableTarget, setYakuListState }) => {
+    const updateCheckState = useCallback(
+      (value, disableTarget, setYakuListState) => {
+        useUpdateAgariState(value, setAgariState)
+        useUpdateYakuDisabledState(value, disableTarget, setYakuListState)
+      },
+      [],
+    )
 
-  const labelColor = (value, status) => {
-    if ((value === 1 && status) || (value === 2 && !status)) {
-      return `bg-blue-300`
-    } else {
-      return `bg-gray-300`
-    }
-  }
-
-  return (
-    <Card>
-      <CardTitle title={questionType.title} />
-      <CardDescription description={questionType.description} />
+    return (
       <ul className='mt-1 flex flex-wrap'>
         {questionType.values.map((value, index) => {
           return (
             <li key={`${questionType.id}-${index}`}>
               <ItemSelectRadio
-                id={items.id}
+                items={items}
                 value={value}
                 choice={questionType.choices[index]}
-                setStatus={setStatus}
-                labelColor={labelColor(value, items.status)}
-                handleClick={() => updateCheckState(value, disable)}
+                labelColor={useChangeRadioLabelColor}
+                disableTarget={disableTarget}
+                setYakuListState={setYakuListState}
+                handleClick={updateCheckState}
               />
             </li>
           )
         })}
       </ul>
-    </Card>
-  )
-}
+    )
+  },
+)

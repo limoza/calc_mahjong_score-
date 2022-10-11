@@ -15,6 +15,51 @@ export const QuestionList = {
   },
 }
 
+export const yakuNumberSections = [
+  {
+    yakuNumber: '1',
+    alias: '1翻役',
+  },
+  {
+    yakuNumber: '2',
+    alias: '2翻役',
+  },
+  {
+    yakuNumber: '3',
+    alias: '3翻役',
+  },
+  {
+    yakuNumber: '6',
+    alias: '6翻役',
+  },
+  {
+    yakuNumber: '13',
+    alias: '役満',
+  },
+]
+
+export const yakuNumberGroup = [
+  [1],
+  [2],
+  [3],
+  [4, 5],
+  [6, 7],
+  [8, 9, 10],
+  [11, 12],
+  [13],
+]
+
+export const yakuEnglishNameGroup = [
+  'iHan',
+  'ryanHan',
+  'sanHan',
+  'mangan',
+  'haneman',
+  'baiman',
+  'sanbaiman',
+  'yakuman',
+]
+
 export const score = {
   iHan: {
     name: '1飜',
@@ -176,4 +221,9 @@ export const score = {
       },
     },
   },
+}
+
+export const errorText = {
+  IsZero: '役を選択してください',
+  IsOver: '13飜を超えています。選択し直してください。',
 }
