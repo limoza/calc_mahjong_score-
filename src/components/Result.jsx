@@ -3,7 +3,7 @@ import {
   sumYakuNumberSelector,
   selectedYakuListSelector,
   scoreSelector,
-  temboSelector,
+  temboImageSelector,
 } from '../../states/selector/stateSelector'
 import { Card } from './Card'
 import { CardTitle } from './CardTitle'
@@ -24,14 +24,14 @@ export const Result = ({ title }) => {
     resultTsumoChildrenPayment,
   } = useRecoilValue(scoreSelector)
   const {
-    resultRonPaymentTembo,
-    resultTsumoParentPaymentTembo,
-    resultTsumoChildrenPaymentTembo,
-  } = useRecoilValue(temboSelector)
+    resultRonPaymentTemboImages,
+    resultTsumoParentPaymentTemboImages,
+    resultTsumoChildrenPaymentTemboImages,
+  } = useRecoilValue(temboImageSelector)
 
-  console.log(resultRonPaymentTembo)
-  console.log(resultTsumoParentPaymentTembo)
-  console.log(resultTsumoChildrenPaymentTembo)
+  console.log(resultRonPaymentTemboImages)
+  console.log(resultTsumoParentPaymentTemboImages)
+  console.log(resultTsumoChildrenPaymentTemboImages)
 
   return (
     <Card>

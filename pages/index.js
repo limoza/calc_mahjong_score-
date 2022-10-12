@@ -66,6 +66,7 @@ export default function Home() {
         )
       })}
       <Result title='結果' />
+      <p className='bg-blue-300 bg-gray-100 bg-gray-300 text-gray-200'>test</p>
     </Body>
   )
 }

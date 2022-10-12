@@ -10,6 +10,7 @@ import {
 import { useChangeButtonLabelColor } from '../hooks/useChangeLabelColor'
 
 export const YakuContainer = React.memo(({ yakuItems, setYakuListState }) => {
+  // 親からとってこよ...
   const getNakiStatus = useRecoilValue(nakiStatus)
 
   const calcKuisagari = useCallback(

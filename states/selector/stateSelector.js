@@ -226,19 +226,28 @@ export const temboImageSelector = selector({
       resultTsumoChildrenPaymentTembo,
     ]
 
-    const temboImage = []
-    // tembos.map(tembo => {
-    //   tembo[''].one === 1 ? '5manten'
-    // })
+    if (!resultRonPaymentTembo) return false
 
-    // const resultRonPaymentTembo = results[0]
-    // const resultTsumoParentPaymentTembo = results[1]
-    // const resultTsumoChildrenPaymentTembo = results[2]
+    const tembosImage = []
+
+    tembos.map((tembo) => {
+      const temboImage = []
+      tembo.man.one && temboImage.push(`man1.png`)
+      tembo.sen.five && temboImage.push(`sen5.png`)
+      tembo.sen.one && temboImage.push(`sen${tembo.sen.one}.png`)
+      tembo.hyaku.five && temboImage.push(`hyaku5.png`)
+      tembo.hyaku.one && temboImage.push(`hyaku${tembo.hyaku.one}.png`)
+      tembosImage.push(temboImage)
+    })
+
+    const resultRonPaymentTemboImages = tembosImage[0]
+    const resultTsumoParentPaymentTemboImages = tembosImage[1]
+    const resultTsumoChildrenPaymentTemboImages = tembosImage[2]
 
     return {
-      // resultRonPaymentTembo,
-      // resultTsumoParentPaymentTembo,
-      // resultTsumoChildrenPaymentTembo,
+      resultRonPaymentTemboImages,
+      resultTsumoParentPaymentTemboImages,
+      resultTsumoChildrenPaymentTemboImages,
     }
   },
 })
