@@ -65,7 +65,7 @@ export const sumYakuNumberSelector = selector({
     })
 
     const sumYakuNumber = filteredItems.length
-      ? filteredItems.reduce((perv, crrent) => perv + crrent)
+      ? filteredItems.reduce((perv, current) => perv + current)
       : [0]
 
     return sumYakuNumber

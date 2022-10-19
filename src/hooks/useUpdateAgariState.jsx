@@ -1,9 +1,10 @@
-export const useUpdateAgariState = (value, setAgariState) => {
+export const useUpdateAgariState = (getIsChecked, setAgariState) => {
   setAgariState((prev) => {
+    // console.log(getIsChecked, 'getIsChecked')
     const newStateList = { ...prev }
     return {
       ...newStateList,
-      status: value === 1 ? true : value === 2 ? false : false,
+      status: getIsChecked,
     }
   })
 }

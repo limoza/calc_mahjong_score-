@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useState } from 'react'
 
 import { Body } from '../src/components/Body'
 import { KeyVisual } from '../src/components/KeyVisual'
@@ -6,11 +6,18 @@ import { YakuContainer } from '../src/components/YakuList'
 import { AgariStatusList } from '../src/components/AgariStatusList'
 import { Card } from '../src/components/Card'
 import { CardTitle } from '../src/components/CardTitle'
+import { CardTitleButton } from '../src/components/CardTitleButton'
 import { CardDescription } from '../src/components/CardDescription'
 import { Result } from '../src/components/Result'
+import { Modal } from '../src/components/common/Modal/Modal'
 
-import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil'
-import { yakuList, nakiStatus, oyaStatus } from '../states/atoms/stateAtom'
+import { useRecoilValue, useRecoilState } from 'recoil'
+import {
+  yakuList,
+  nakiStatus,
+  oyaStatus,
+  ronTsumoStatus,
+} from '../states/atoms/stateAtom'
 import { QuestionList, yakuNumberSections } from '../constants/constants'
 
 import { yakuNumberSectionSelector } from './../states/selector/stateSelector'
@@ -18,35 +25,67 @@ import { yakuNumberSectionSelector } from './../states/selector/stateSelector'
 export default function Home() {
   const getNakiStatus = useRecoilValue(nakiStatus)
   const getOyaStatus = useRecoilValue(oyaStatus)
+  const getRonTsumoStatus = useRecoilValue(ronTsumoStatus)
+
+  const getStatuses = {
+    nakiStatus: useRecoilValue(nakiStatus),
+    oyaStatus: useRecoilValue(oyaStatus),
+    ronTsumoStatus: useRecoilValue(ronTsumoStatus),
+  }
+  const disabledKeys = {
+    oya: QuestionList.oya.disabledKey,
+    ronTsumo: QuestionList.ronTsumo.disabledKey,
+    naki: QuestionList.naki.disabledKey,
+  }
 
   const [, setYakuListState] = useRecoilState(yakuList)
   const [, setNakiState] = useRecoilState(nakiStatus)
   const [, setOyaState] = useRecoilState(oyaStatus)
+  const [, setRonTsumoStatus] = useRecoilState(ronTsumoStatus)
 
   const filteredItems = useRecoilValue(yakuNumberSectionSelector)
 
+  const [modalOpen, SetIsOpen] = useState({
+    IsOpen: false,
+    yakuNumber: '',
+  })
+
   return (
-    <Body>
+    <Body modalOpen={modalOpen}>
+      <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
       <KeyVisual />
       <Card>
         <CardTitle title={QuestionList.oya.title} />
         <CardDescription description={QuestionList.oya.description} />
         <AgariStatusList
           items={getOyaStatus}
-          questionType={QuestionList.oya}
           setAgariState={setOyaState}
-          disableTarget={'oyaOnly'}
+          disabledKeys={disabledKeys}
+          getStatuses={getStatuses}
           setYakuListState={setYakuListState}
         />
       </Card>
+
+      <Card>
+        <CardTitle title={QuestionList.ronTsumo.title} />
+        <CardDescription description={QuestionList.ronTsumo.description} />
+        <AgariStatusList
+          items={getRonTsumoStatus}
+          setAgariState={setRonTsumoStatus}
+          disabledKeys={disabledKeys}
+          getStatuses={getStatuses}
+          setYakuListState={setYakuListState}
+        />
+      </Card>
+
       <Card>
         <CardTitle title={QuestionList.naki.title} />
         <CardDescription description={QuestionList.naki.description} />
         <AgariStatusList
           items={getNakiStatus}
-          questionType={QuestionList.naki}
           setAgariState={setNakiState}
-          disableTarget={'menzenOnly'}
+          disabledKeys={disabledKeys}
+          getStatuses={getStatuses}
           setYakuListState={setYakuListState}
         />
       </Card>
@@ -54,13 +93,18 @@ export default function Home() {
       {yakuNumberSections.map((yakuNumberSection, index) => {
         return (
           <Card key={`yakuNumberSection-${yakuNumberSection.yakuNumber}`}>
-            <CardTitle title={`${yakuNumberSection.alias}`} />
+            <CardTitleButton
+              title={`${yakuNumberSection.alias}`}
+              SetIsOpen={SetIsOpen}
+              yakuNumber={yakuNumberSection.yakuNumber}
+            />
             <CardDescription
               description={`${yakuNumberSection.alias}を選んでください`}
             />
             <YakuContainer
               yakuItems={filteredItems[index]}
               setYakuListState={setYakuListState}
+              nakiStatus={getNakiStatus}
             />
           </Card>
         )

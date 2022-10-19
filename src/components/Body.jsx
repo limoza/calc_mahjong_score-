@@ -1,3 +1,7 @@
-export const Body = ({ children }) => {
-  return <div className='bg-gray-100'>{children}</div>
+export const Body = ({ modalOpen, children }) => {
+  return (
+    <div className={`${modalOpen.IsOpen && `fixed`} bg-gray-100`}>
+      {children}
+    </div>
+  )
 }

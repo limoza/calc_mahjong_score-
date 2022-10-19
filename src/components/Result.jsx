@@ -29,9 +29,9 @@ export const Result = ({ title }) => {
     resultTsumoChildrenPaymentTemboImages,
   } = useRecoilValue(temboImageSelector)
 
-  console.log(resultRonPaymentTemboImages)
-  console.log(resultTsumoParentPaymentTemboImages)
-  console.log(resultTsumoChildrenPaymentTemboImages)
+  // console.log(resultRonPaymentTemboImages)
+  // console.log(resultTsumoParentPaymentTemboImages)
+  // console.log(resultTsumoChildrenPaymentTemboImages)
 
   return (
     <Card>
@@ -41,12 +41,12 @@ export const Result = ({ title }) => {
           return (
             <li key={SelectedItem.id} className='flex justify-between'>
               <p>{SelectedItem.content}</p>
-              <p>{SelectedItem.yakuNumber}飜</p>
+              <p>{SelectedItem.yakuNumber}翻</p>
             </li>
           )
         })}
       </ul>
-      {sumYakuNumber && <p className='bg-red-200'>合計: {sumYakuNumber}飜</p>}
+      {sumYakuNumber && <p className='bg-red-200'>合計: {sumYakuNumber}翻</p>}
       {!IsInRange && IsZero && <p className='bg-red-400'>{errorText.IsZero}</p>}
       {!IsInRange && !IsZero && (
         <p className='bg-red-400'>{errorText.IsOver}</p>

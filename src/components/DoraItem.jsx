@@ -1,24 +1,21 @@
 import React from 'react'
+import { CountButton } from './common/Button'
 
 export const DoraItem = React.memo(
   ({ yakuItem, handleClick, setYakuListState }) => {
     return (
       <>
-        <div>
+        <div className='flex'>
           <p>ドラ:</p>
           <p>{yakuItem.value}</p>
-          <button
-            className='bg-green-400 py-1 px-2'
-            onClick={() => handleClick(yakuItem, true, setYakuListState)}
-          >
-            +
-          </button>
-          <button
-            className='bg-green-400 py-1 px-2'
-            onClick={() => handleClick(yakuItem, false, setYakuListState)}
-          >
-            -
-          </button>
+          <CountButton
+            countType='+'
+            handleClick={() => handleClick(yakuItem, true, setYakuListState)}
+          />
+          <CountButton
+            countType='-'
+            handleClick={() => handleClick(yakuItem, false, setYakuListState)}
+          />
         </div>
       </>
     )

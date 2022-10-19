@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export const YakuItem = React.memo(
   ({ yakuItem, handleClick, kuisagari, setYakuListState, labelColor }) => {
