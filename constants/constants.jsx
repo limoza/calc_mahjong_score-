@@ -5,7 +5,7 @@ export const QuestionList = {
     description: 'ポン、チー、ミンカンをしていますか？',
     choices: ['はい', 'いいえ'],
     values: ['yes', 'no'],
-    ShouldDisabled: [true, false],
+    ShouldDisabled: true,
     disabledKey: 'menzenOnly',
   },
   ronTsumo: {
@@ -14,7 +14,7 @@ export const QuestionList = {
     description: 'ツモ、ロンどちらで上がりましたか？',
     choices: ['ツモ', 'ロン'],
     values: ['tsumo', 'ron'],
-    ShouldDisabled: [false, true],
+    ShouldDisabled: false,
     disabledKey: 'IsRonDisabled',
   },
   oya: {
@@ -23,7 +23,7 @@ export const QuestionList = {
     description: '親ですか？',
     choices: ['親', '子'],
     values: ['oya', 'ko'],
-    ShouldDisabled: [false, true],
+    ShouldDisabled: false,
     disabledKey: 'oyaOnly',
   },
 }

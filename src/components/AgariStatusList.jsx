@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import { ItemSelectRadio } from './ItemSelectRadio'
 
 import { useUpdateAgariState } from '../hooks/useUpdateAgariState'
-import { useUpdateYakuDisabledState } from '../hooks/useUpdateYakuState'
 import { useChangeRadioLabelColor } from '../hooks/useChangeLabelColor'
 
 export const AgariStatusList = React.memo(
@@ -16,14 +15,6 @@ export const AgariStatusList = React.memo(
     statusUpdateCheck = 0,
   }) => {
     const [IsChecked, SetIsChecked] = useState(items.values[defaultCheck])
-    console.log(items.status, 'agariList-' + items.id)
-
-    // const updateCheckState = useCallback(
-    //   (choice, disableTarget, setYakuListState) => {
-    //     useUpdateYakuDisabledState(disableTarget, setYakuListState, choice)
-    //   },
-    //   [],
-    // )
 
     return (
       <ul className='mt-1 flex flex-wrap'>
@@ -48,7 +39,6 @@ export const AgariStatusList = React.memo(
                 customHooks={{
                   useChangeRadioLabelColor,
                   useUpdateAgariState,
-                  useUpdateYakuDisabledState,
                 }}
               />
             </li>

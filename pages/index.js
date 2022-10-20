@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 
 import { Body } from '../src/components/Body'
 import { KeyVisual } from '../src/components/KeyVisual'
@@ -21,22 +21,28 @@ import {
 import { QuestionList, yakuNumberSections } from '../constants/constants'
 
 import { yakuNumberSectionSelector } from './../states/selector/stateSelector'
+import { useUpdateYakuDisabledState } from '../src/hooks/useUpdateYakuState'
 
 export default function Home() {
   const getNakiStatus = useRecoilValue(nakiStatus)
   const getOyaStatus = useRecoilValue(oyaStatus)
   const getRonTsumoStatus = useRecoilValue(ronTsumoStatus)
 
-  const getStatuses = {
-    nakiStatus: useRecoilValue(nakiStatus),
-    oyaStatus: useRecoilValue(oyaStatus),
-    ronTsumoStatus: useRecoilValue(ronTsumoStatus),
-  }
-  const disabledKeys = {
-    oya: QuestionList.oya.disabledKey,
-    ronTsumo: QuestionList.ronTsumo.disabledKey,
-    naki: QuestionList.naki.disabledKey,
-  }
+  const getStatuses = [
+    getNakiStatus.status,
+    getOyaStatus.status,
+    getRonTsumoStatus.status,
+  ]
+  const disabledKeys = [
+    QuestionList.naki.disabledKey,
+    QuestionList.oya.disabledKey,
+    QuestionList.ronTsumo.disabledKey,
+  ]
+  const ShouldDisabledValues = [
+    QuestionList.naki.ShouldDisabled,
+    QuestionList.oya.ShouldDisabled,
+    QuestionList.ronTsumo.ShouldDisabled,
+  ]
 
   const [, setYakuListState] = useRecoilState(yakuList)
   const [, setNakiState] = useRecoilState(nakiStatus)
@@ -49,6 +55,15 @@ export default function Home() {
     IsOpen: false,
     yakuNumber: '',
   })
+
+  useEffect(() => {
+    useUpdateYakuDisabledState(
+      setYakuListState,
+      ShouldDisabledValues,
+      disabledKeys,
+      getStatuses,
+    )
+  }, [getNakiStatus, getOyaStatus, getRonTsumoStatus])
 
   return (
     <Body modalOpen={modalOpen}>

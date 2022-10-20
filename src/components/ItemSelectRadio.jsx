@@ -1,20 +1,9 @@
 import React from 'react'
-// import { useRecoilValue, useRecoilState } from 'recoil'
-// import {
-//   yakuList,
-//   nakiStatus,
-//   oyaStatus,
-//   ronTsumoStatus,
-// } from '../../states/atoms/stateAtom'
 
 export const ItemSelectRadio = React.memo(
   ({
     id,
-    ShouldDisabled,
     choice,
-    disabledKeys,
-    disableTarget,
-    getStatuses,
     IsChecked,
     value,
     SetIsChecked,
@@ -22,16 +11,8 @@ export const ItemSelectRadio = React.memo(
     useRecoilState,
     customHooks,
   }) => {
-    // const getNakiStatusAA = useRecoilValue(nakiStatus)
-    // const getOyaStatusAA = useRecoilValue(oyaStatus)
-    // const getRonTsumoStatusAA = useRecoilValue(ronTsumoStatus)
-    // console.log(IsChecked)
-    const {
-      useChangeRadioLabelColor,
-      useUpdateAgariState,
-      useUpdateYakuDisabledState,
-    } = customHooks
-    const { setAgariState, setYakuListState } = useRecoilState
+    const { useChangeRadioLabelColor, useUpdateAgariState } = customHooks
+    const { setAgariState } = useRecoilState
     return (
       <label className={`${useChangeRadioLabelColor(IsChecked)} py-1 px-2`}>
         <input
@@ -43,16 +24,6 @@ export const ItemSelectRadio = React.memo(
             useUpdateAgariState(
               statusUpdateCheck === e.target.value,
               setAgariState,
-            )
-            // console.log(getNakiStatusAA)
-            // console.log(getOyaStatusAA)
-            // console.log(getRonTsumoStatusAA)
-            useUpdateYakuDisabledState(
-              disableTarget,
-              setYakuListState,
-              ShouldDisabled,
-              disabledKeys,
-              getStatuses,
             )
           }}
           checked={IsChecked}

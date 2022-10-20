@@ -23,28 +23,25 @@ export const YakuContainer = React.memo(
     return (
       <ul className='mt-1 flex flex-wrap gap-3'>
         {yakuItems.map((yakuItem) => {
+          const IsDora = yakuItem.id === 'dora'
           return (
-            <>
-              {yakuItem.id === 'dora' ? (
-                <li key={yakuItem.id} className='w-full'>
-                  <DoraItem
-                    yakuItem={yakuItem}
-                    handleClick={useUpdateDoraState}
-                    setYakuListState={setYakuListState}
-                  />
-                </li>
+            <li key={yakuItem.id} className={IsDora ? 'w-full' : ''}>
+              {IsDora ? (
+                <DoraItem
+                  yakuItem={yakuItem}
+                  handleClick={useUpdateDoraState}
+                  setYakuListState={setYakuListState}
+                />
               ) : (
-                <li key={yakuItem.id}>
-                  <YakuItem
-                    yakuItem={yakuItem}
-                    handleClick={useUpdateYakuCheckState}
-                    kuisagari={calcKuisagari}
-                    setYakuListState={setYakuListState}
-                    labelColor={useChangeButtonLabelColor}
-                  />
-                </li>
+                <YakuItem
+                  yakuItem={yakuItem}
+                  handleClick={useUpdateYakuCheckState}
+                  kuisagari={calcKuisagari}
+                  setYakuListState={setYakuListState}
+                  labelColor={useChangeButtonLabelColor}
+                />
               )}
-            </>
+            </li>
           )
         })}
       </ul>
