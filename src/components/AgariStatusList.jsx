@@ -8,8 +8,6 @@ export const AgariStatusList = React.memo(
   ({
     items,
     setAgariState,
-    disabledKeys,
-    getStatuses,
     setYakuListState,
     defaultCheck = 1,
     statusUpdateCheck = 0,
@@ -24,11 +22,7 @@ export const AgariStatusList = React.memo(
               <ItemSelectRadio
                 id={items.id}
                 choice={choice}
-                disabledKeys={disabledKeys}
-                disableTarget={disabledKeys[items.id]}
-                getStatuses={getStatuses}
                 value={items.values[index]}
-                ShouldDisabled={items.ShouldDisabled[index]}
                 statusUpdateCheck={items.values[statusUpdateCheck]}
                 IsChecked={IsChecked === items.values[index]}
                 SetIsChecked={SetIsChecked}

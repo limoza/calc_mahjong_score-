@@ -24,6 +24,7 @@ export const ItemSelectRadio = React.memo(
             useUpdateAgariState(
               statusUpdateCheck === e.target.value,
               setAgariState,
+              value,
             )
           }}
           checked={IsChecked}

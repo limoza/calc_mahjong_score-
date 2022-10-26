@@ -5,8 +5,6 @@ export const QuestionList = {
     description: 'ポン、チー、ミンカンをしていますか？',
     choices: ['はい', 'いいえ'],
     values: ['yes', 'no'],
-    ShouldDisabled: true,
-    disabledKey: 'menzenOnly',
   },
   ronTsumo: {
     id: 'ronTsumo',
@@ -14,8 +12,6 @@ export const QuestionList = {
     description: 'ツモ、ロンどちらで上がりましたか？',
     choices: ['ツモ', 'ロン'],
     values: ['tsumo', 'ron'],
-    ShouldDisabled: false,
-    disabledKey: 'IsRonDisabled',
   },
   oya: {
     id: 'oya',
@@ -23,9 +19,15 @@ export const QuestionList = {
     description: '親ですか？',
     choices: ['親', '子'],
     values: ['oya', 'ko'],
-    ShouldDisabled: false,
-    disabledKey: 'oyaOnly',
   },
+}
+
+export const disabledKeys = {
+  oyaDisabledKey: 'oyaDisabled',
+  koDisabledKey: 'koDisabled',
+  ronDisabledKey: 'ronDisabled',
+  tsumoDisabledKey: 'tsumoDisabled',
+  nakiDisabledKey: 'nakiDisabled',
 }
 
 export const yakuNumberSections = [
@@ -241,7 +243,7 @@ export const errorText = {
   IsOver: '13翻を超えています。選択し直してください。',
 }
 
-export const yakuExplanations = [
+export const yakus = [
   {
     id: 'reach',
     content: '立直',

@@ -18,30 +18,24 @@ import {
   oyaStatus,
   ronTsumoStatus,
 } from '../states/atoms/stateAtom'
-import { QuestionList, yakuNumberSections } from '../constants/constants'
+import {
+  QuestionList,
+  disabledKeys,
+  yakuNumberSections,
+} from '../constants/constants'
 
 import { yakuNumberSectionSelector } from './../states/selector/stateSelector'
 import { useUpdateYakuDisabledState } from '../src/hooks/useUpdateYakuState'
 
-export default function Home() {
+const Home = React.memo(() => {
   const getNakiStatus = useRecoilValue(nakiStatus)
   const getOyaStatus = useRecoilValue(oyaStatus)
   const getRonTsumoStatus = useRecoilValue(ronTsumoStatus)
 
-  const getStatuses = [
-    getNakiStatus.status,
-    getOyaStatus.status,
-    getRonTsumoStatus.status,
-  ]
-  const disabledKeys = [
-    QuestionList.naki.disabledKey,
-    QuestionList.oya.disabledKey,
-    QuestionList.ronTsumo.disabledKey,
-  ]
-  const ShouldDisabledValues = [
-    QuestionList.naki.ShouldDisabled,
-    QuestionList.oya.ShouldDisabled,
-    QuestionList.ronTsumo.ShouldDisabled,
+  const selectedValues = [
+    getOyaStatus.selectedValue,
+    getRonTsumoStatus.selectedValue,
+    getNakiStatus.selectedValue,
   ]
 
   const [, setYakuListState] = useRecoilState(yakuList)
@@ -57,16 +51,11 @@ export default function Home() {
   })
 
   useEffect(() => {
-    useUpdateYakuDisabledState(
-      setYakuListState,
-      ShouldDisabledValues,
-      disabledKeys,
-      getStatuses,
-    )
-  }, [getNakiStatus, getOyaStatus, getRonTsumoStatus])
+    useUpdateYakuDisabledState(setYakuListState, disabledKeys, selectedValues)
+  }, [getNakiStatus.status, getOyaStatus.status, getRonTsumoStatus.status])
 
   return (
-    <Body modalOpen={modalOpen}>
+    <div className={`${modalOpen.IsOpen && `fixed`} bg-gray-100`}>
       <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
       <KeyVisual />
       <Card>
@@ -75,8 +64,6 @@ export default function Home() {
         <AgariStatusList
           items={getOyaStatus}
           setAgariState={setOyaState}
-          disabledKeys={disabledKeys}
-          getStatuses={getStatuses}
           setYakuListState={setYakuListState}
         />
       </Card>
@@ -87,8 +74,6 @@ export default function Home() {
         <AgariStatusList
           items={getRonTsumoStatus}
           setAgariState={setRonTsumoStatus}
-          disabledKeys={disabledKeys}
-          getStatuses={getStatuses}
           setYakuListState={setYakuListState}
         />
       </Card>
@@ -99,8 +84,6 @@ export default function Home() {
         <AgariStatusList
           items={getNakiStatus}
           setAgariState={setNakiState}
-          disabledKeys={disabledKeys}
-          getStatuses={getStatuses}
           setYakuListState={setYakuListState}
         />
       </Card>
@@ -126,6 +109,8 @@ export default function Home() {
       })}
       <Result title='結果' />
       <p className='bg-blue-300 bg-gray-100 bg-gray-300 text-gray-200'>test</p>
-    </Body>
+    </div>
   )
-}
+})
+
+export default Home
