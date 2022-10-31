@@ -13,10 +13,16 @@ export const Button = React.memo(
   },
 )
 
-export const CountButton = React.memo(({ countType, handleClick }) => {
-  return (
-    <button className='bg-green-400 py-1 px-2' onClick={handleClick}>
-      {countType}
-    </button>
-  )
-})
+export const CountButton = React.memo(
+  ({ countType, handleClick, yakuItem, labelColor }) => {
+    return (
+      <button
+        className={`${labelColor(yakuItem)} py-1 px-2`}
+        onClick={handleClick}
+        disabled={yakuItem.IsDisabled}
+      >
+        {countType}
+      </button>
+    )
+  },
+)

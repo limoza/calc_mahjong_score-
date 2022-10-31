@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 
 import { Body } from '../src/components/Body'
 import { KeyVisual } from '../src/components/KeyVisual'
@@ -24,7 +24,11 @@ import {
   yakuNumberSections,
 } from '../constants/constants'
 
-import { yakuNumberSectionSelector } from './../states/selector/stateSelector'
+import {
+  yakuNumberSectionSelector,
+  selectedYakuTypeSelector,
+  IsSelectedYakumanSelector,
+} from './../states/selector/stateSelector'
 import { useUpdateYakuDisabledState } from '../src/hooks/useUpdateYakuState'
 
 const Home = React.memo(() => {
@@ -44,15 +48,36 @@ const Home = React.memo(() => {
   const [, setRonTsumoStatus] = useRecoilState(ronTsumoStatus)
 
   const filteredItems = useRecoilValue(yakuNumberSectionSelector)
+  const selectedYakuType = useRecoilValue(selectedYakuTypeSelector)
+  const IsSelectedYakuman = useRecoilValue(IsSelectedYakumanSelector)
 
   const [modalOpen, SetIsOpen] = useState({
     IsOpen: false,
     yakuNumber: '',
   })
 
+  console.log(IsSelectedYakuman, '👈IsSelectedYakuman')
+  // console.log(selectedYakuType, '👈selectedYakuTypeSelector')
+
   useEffect(() => {
-    useUpdateYakuDisabledState(setYakuListState, disabledKeys, selectedValues)
-  }, [getNakiStatus.status, getOyaStatus.status, getRonTsumoStatus.status])
+    useUpdateYakuDisabledState(
+      setYakuListState,
+      disabledKeys,
+      selectedValues,
+      IsSelectedYakuman,
+      selectedYakuType,
+    )
+  }, [
+    getNakiStatus.status,
+    getOyaStatus.status,
+    getRonTsumoStatus.status,
+    IsSelectedYakuman,
+    // selectedYakuType.IsShuntsuSelected,
+    // selectedYakuType.IsToitsuSelected,
+    // selectedYakuType.IsKotsuSelected,
+    // selectedYakuType.IsKantsuSelected,
+    // selectedYakuType.IsJihaiSelected,
+  ])
 
   return (
     <div className={`${modalOpen.IsOpen && `fixed`} bg-gray-100`}>

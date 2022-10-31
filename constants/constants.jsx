@@ -28,6 +28,11 @@ export const disabledKeys = {
   ronDisabledKey: 'ronDisabled',
   tsumoDisabledKey: 'tsumoDisabled',
   nakiDisabledKey: 'nakiDisabled',
+  shuntsuDisabledKey: 'shuntsuDisabled',
+  toitsuDisabledKey: 'toitsuDisabled',
+  kotsuDisabledKey: 'kotsuDisabled',
+  kantsuDisabledKey: 'kantsuDisabled',
+  jihaiDisabledKey: 'jihaiDisabled',
 }
 
 export const yakuNumberSections = [
@@ -51,6 +56,10 @@ export const yakuNumberSections = [
     yakuNumber: '13',
     alias: '役満',
   },
+  {
+    yakuNumber: '26',
+    alias: 'ダブル役満',
+  },
 ]
 
 export const yakuNumberGroup = [
@@ -62,6 +71,7 @@ export const yakuNumberGroup = [
   [8, 9, 10],
   [11, 12],
   [13],
+  [26],
 ]
 
 export const yakuEnglishNameGroup = [
@@ -73,6 +83,7 @@ export const yakuEnglishNameGroup = [
   'baiman',
   'sanbaiman',
   'yakuman',
+  'doubleYakuman',
 ]
 
 export const score = {
@@ -232,6 +243,26 @@ export const score = {
         tsumoAgari: {
           parentPayment: '16000',
           childrenPayment: '8000',
+        },
+      },
+    },
+  },
+  doubleYakuman: {
+    name: 'ダブル役満',
+    payment: {
+      parentAgari: {
+        score: '96000',
+        ronAgari: '96000',
+        tsumoAgari: {
+          childrenPayment: '32000',
+        },
+      },
+      childrenAgari: {
+        score: '64000',
+        ronAgari: '64000',
+        tsumoAgari: {
+          parentPayment: '32000',
+          childrenPayment: '16000',
         },
       },
     },
@@ -501,5 +532,101 @@ export const yakus = [
     content: '天和',
     yakuNumber: '13',
     explanation: `天和の解説`,
+  },
+  {
+    id: 'suanko_daisangen',
+    content: '四暗刻＋大三元',
+    yakuNumber: '26',
+    explanation: '四暗刻＋大三元の解説',
+  },
+  {
+    id: 'suanko_tsuiso',
+    content: '四暗刻＋字一色',
+    yakuNumber: '26',
+    explanation: '四暗刻＋字一色の解説',
+  },
+  {
+    id: 'tsuiso_daisangen',
+    content: '字一色＋大三元',
+    yakuNumber: '26',
+    explanation: '字一色＋大三元の解説',
+  },
+  {
+    id: 'tsuiso_shosushi',
+    content: '字一色＋小四喜',
+    yakuNumber: '26',
+    explanation: '字一色＋小四喜の解説',
+  },
+  {
+    id: 'tsuiso_daisushi',
+    content: '字一色＋大四喜',
+    yakuNumber: '26',
+    explanation: '字一色＋大四喜の解説',
+  },
+  {
+    id: 'ryuiso_suanko',
+    content: '緑一色＋四暗刻',
+    yakuNumber: '26',
+    explanation: '緑一色＋四暗刻の解説',
+  },
+  {
+    id: 'ryuiso_sukantsu',
+    content: '緑一色＋四槓子',
+    yakuNumber: '26',
+    explanation: '緑一色＋四槓子の解説',
+  },
+  {
+    id: 'daisushi_sukantsu',
+    content: '大四喜＋四槓子',
+    yakuNumber: '26',
+    explanation: '大四喜＋四槓子の解説',
+  },
+  {
+    id: 'chinroto_suanko',
+    content: '清老頭＋四暗刻',
+    yakuNumber: '26',
+    explanation: '清老頭＋四暗刻の解説',
+  },
+  {
+    id: 'chinroto_sukantsu',
+    content: '清老頭＋四槓子',
+    yakuNumber: '26',
+    explanation: '清老頭＋四槓子の解説',
+  },
+  {
+    id: 'sukantsu_suanko',
+    content: '四槓子＋四暗刻',
+    yakuNumber: '26',
+    explanation: '四槓子＋四暗刻の解説',
+  },
+  {
+    id: 'sukantsu_tsuiso',
+    content: '四槓子＋字一色',
+    yakuNumber: '26',
+    explanation: '四槓子＋字一色の解説',
+  },
+  {
+    id: 'suankoTanki',
+    content: '四暗刻単騎',
+    yakuNumber: '26',
+    explanation: '四暗刻単騎の解説',
+  },
+  {
+    id: 'kokushimusoJusanmenmachi',
+    content: '国士無双13面待ち',
+    yakuNumber: '26',
+    explanation: '国士無双13面待ちの解説',
+  },
+  {
+    id: 'junseiChurenpoto',
+    content: '純正九蓮宝燈',
+    yakuNumber: '26',
+    explanation: '純正九蓮宝燈の解説',
+  },
+  {
+    id: 'hatsunashiRyuiso',
+    content: '發なし緑一色',
+    yakuNumber: '26',
+    explanation: '發なし緑一色の解説',
   },
 ]

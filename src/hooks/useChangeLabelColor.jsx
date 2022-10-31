@@ -12,17 +12,6 @@ export const useChangeButtonLabelColor = (yakuItem) => {
   } else {
     return `bg-gray-300`
   }
-  // } else if (getRonTsumoStatus.status && yakuItem.IsDisabled) {
-  //   return `bg-gray-100 text-gray-200`
-  // } else if (getNakiStatus.status && yakuItem.IsDisabled) {
-  //   return `bg-gray-100 text-gray-200`
-  // } else if (getRonTsumoStatus.status && !yakuItem.IsDisabled) {
-  //   return `bg-gray-300`
-  // } else if (getNakiStatus.status && !yakuItem.IsDisabled) {
-  //   return `bg-gray-300`
-  // } else {
-  //   return `bg-gray-300`
-  // }
 }
 
 export const useChangeRadioLabelColor = (IsChecked) =>

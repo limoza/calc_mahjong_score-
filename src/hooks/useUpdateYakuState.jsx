@@ -18,12 +18,26 @@ export const useUpdateYakuDisabledState = (
   setYakuListState,
   disabledKeys,
   selectedValues,
+  IsYakumanSelected,
+  // selectedYakuType,
 ) => {
   const disabledKeysArray = Object.values(disabledKeys)
   setYakuListState((prev) => {
     const newYakuList = prev.map((item) => {
-      item.id === 'haku' && console.log(item.yakuType())
-
+      if (IsYakumanSelected === item.id) {
+        return {
+          ...item,
+          IsChecked: item.IsChecked,
+          IsDisabled: false,
+        }
+      } else if (IsYakumanSelected) {
+        return {
+          ...item,
+          IsChecked: false,
+          IsDisabled: true,
+          value: 0,
+        }
+      }
       const IsIgnore = disabledKeysArray
         .map((disabledKey) => item.disabledValues[disabledKey])
         .every((elem) => !elem)
@@ -47,6 +61,22 @@ export const useUpdateYakuDisabledState = (
       const IsNakiDisabled =
         IsNakiSelected && item.disabledValues[disabledKeys.nakiDisabledKey]
 
+      // const IsShuntsuDisabled =
+      //   selectedYakuType.IsShuntsuSelected &&
+      //   item.disabledValues[disabledKeys.shuntsuDisabledKey]
+      // const IsToitsuDisabled =
+      //   selectedYakuType.IsToitsuSelected &&
+      //   item.disabledValues[disabledKeys.toitsuDisabledKey]
+      // const IsKotsuDisabled =
+      //   selectedYakuType.IsKotsuSelected &&
+      //   item.disabledValues[disabledKeys.kotsuDisabledKey]
+      // const IsKantsuDisabled =
+      //   selectedYakuType.IsKantsuSelected &&
+      //   item.disabledValues[disabledKeys.kantsuDisabledKey]
+      // const IsJihaiDisabled =
+      //   selectedYakuType.IsJihaiSelected &&
+      //   item.disabledValues[disabledKeys.jihaiDisabledKey]
+
       const IsTarget =
         IsOyaDisabled ||
         IsKoDisabled ||
@@ -54,8 +84,20 @@ export const useUpdateYakuDisabledState = (
         IsRonDisabled ||
         IsNakiDisabled
 
+      // const IsTarget =
+      //   IsOyaDisabled ||
+      //   IsKoDisabled ||
+      //   IsTsumoDisabled ||
+      //   IsRonDisabled ||
+      //   IsNakiDisabled ||
+      //   IsShuntsuDisabled ||
+      //   IsToitsuDisabled ||
+      //   IsKotsuDisabled ||
+      //   IsKantsuDisabled ||
+      //   IsJihaiDisabled
+
       const IsMenzenTsumo =
-        item.id === 'menzenchintsumo' && IsTsumoSelected && IsNakiSelected
+        item.id === 'menzenchintsumo' && IsTsumoSelected && !IsNakiSelected
 
       if (IsTarget) {
         return {

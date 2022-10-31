@@ -16,10 +16,6 @@ export const YakuContainer = React.memo(
       [nakiStatus.status],
     )
 
-    // useEffect(() => {
-    //   useChangeButtonLabelColor(yakuItems)
-    // }, [yakuItems])
-
     return (
       <ul className='mt-1 flex flex-wrap gap-3'>
         {yakuItems.map((yakuItem) => {
@@ -31,11 +27,12 @@ export const YakuContainer = React.memo(
                   yakuItem={yakuItem}
                   handleClick={useUpdateDoraState}
                   setYakuListState={setYakuListState}
+                  labelColor={useChangeButtonLabelColor}
                 />
               ) : (
                 <YakuItem
                   yakuItem={yakuItem}
-                  handleClick={useUpdateYakuCheckState}
+                  useUpdateYakuCheckState={useUpdateYakuCheckState}
                   kuisagari={calcKuisagari}
                   setYakuListState={setYakuListState}
                   labelColor={useChangeButtonLabelColor}

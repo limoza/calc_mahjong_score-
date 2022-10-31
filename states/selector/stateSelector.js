@@ -45,10 +45,52 @@ export const selectedYakuListSelector = selector({
           id: yakuItem.id,
           content: yakuItem.content,
           yakuNumber: yakuNumber,
+          disabledValues: yakuItem.disabledValues,
+          yakuType: yakuItem.yakuType,
         })
       })
 
     return filteredItems
+  },
+})
+
+export const selectedYakuTypeSelector = selector({
+  key: 'selectedYakuTypeSelector',
+  get: ({ get }) => {
+    const getSelectedYakuList = get(selectedYakuListSelector)
+    if (getSelectedYakuList.length === 0) return false
+
+    const selectedYakuType = []
+    getSelectedYakuList.map((yakuItem) => {
+      yakuItem.yakuType().map((yakuType) => {
+        return selectedYakuType.push(yakuType)
+      })
+    })
+    const uniqueTypeSet = new Set(selectedYakuType)
+    const uniqueTypeArray = Array.from(uniqueTypeSet)
+    const uniqueTypes = {
+      IsShuntsuSelected: uniqueTypeArray.includes('shuntsu'),
+      IsToitsuSelected: uniqueTypeArray.includes('toitsu'),
+      IsKotsuSelected: uniqueTypeArray.includes('kotsu'),
+      IsKantsuSelected: uniqueTypeArray.includes('kantsu'),
+      IsJihaiSelected: uniqueTypeArray.includes('jihai'),
+    }
+    return uniqueTypes
+  },
+})
+
+export const IsSelectedYakumanSelector = selector({
+  key: 'IsSelectedYakumanSelector',
+  get: ({ get }) => {
+    const getSelectedYakuList = get(selectedYakuListSelector)
+
+    const selectedYakuman = getSelectedYakuList.find(
+      (yakuItem) => Number(yakuItem.yakuNumber) >= '13',
+    )
+
+    const IsSelectedYakuman = selectedYakuman ? selectedYakuman.id : false
+
+    return IsSelectedYakuman
   },
 })
 

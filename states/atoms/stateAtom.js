@@ -46,6 +46,16 @@ export const dora = atom({
   ],
 })
 
+const setYakuType = (arg) => {
+  const yakuType = []
+  arg.disabledValues.shuntsuDisabled || yakuType.push('shuntsu')
+  arg.disabledValues.toitsuDisabled || yakuType.push('toitsu')
+  arg.disabledValues.kotsuDisabled || yakuType.push('kotsu')
+  arg.disabledValues.kantsuDisabled || yakuType.push('kantsu')
+  arg.disabledValues.jihaiDisabled || yakuType.push('jihai')
+  return yakuType.length < 5 ? yakuType : ['normal']
+}
+
 export const yakuList = atom({
   key: 'yakuList',
   default: [
@@ -54,7 +64,9 @@ export const yakuList = atom({
       content: '立直',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -75,7 +87,9 @@ export const yakuList = atom({
       content: '門前自摸（ツモ）',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -89,14 +103,16 @@ export const yakuList = atom({
         jihaiDisabled: false,
       },
       kuisagari: '0',
-      IsDisabled: true,
+      IsDisabled: false,
     },
     {
       id: 'ippatsu',
       content: '一発',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -117,6 +133,9 @@ export const yakuList = atom({
       content: '白',
       yakuNumber: '1',
       IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -129,15 +148,6 @@ export const yakuList = atom({
         kantsuDisabled: false,
         jihaiDisabled: false,
       },
-      yakuType: function () {
-        const yakuType = []
-        this.disabledValues.shuntsuDisabled && yakuType.push('shuntsu')
-        this.disabledValues.toitsuDisabled && yakuType.push('toitsu')
-        this.disabledValues.kotsuDisabled && yakuType.push('kotsu')
-        this.disabledValues.kantsuDisabled && yakuType.push('kantsu')
-        this.disabledValues.jihaiDisabled && yakuType.push('jihai')
-        return yakuType
-      },
       kuisagari: '0',
       IsDisabled: false,
     },
@@ -146,7 +156,9 @@ export const yakuList = atom({
       content: '發',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -167,7 +179,9 @@ export const yakuList = atom({
       content: '中',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -188,7 +202,9 @@ export const yakuList = atom({
       content: '自風牌',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -209,7 +225,9 @@ export const yakuList = atom({
       content: '場風牌',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -230,7 +248,9 @@ export const yakuList = atom({
       content: '断么九',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -251,7 +271,9 @@ export const yakuList = atom({
       content: '平和',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -272,7 +294,9 @@ export const yakuList = atom({
       content: '一盃口',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -293,7 +317,9 @@ export const yakuList = atom({
       content: '海底撈月',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -307,14 +333,16 @@ export const yakuList = atom({
         jihaiDisabled: false,
       },
       kuisagari: '0',
-      IsDisabled: true,
+      IsDisabled: false,
     },
     {
       id: 'hotei',
       content: '河底撈魚',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -335,7 +363,9 @@ export const yakuList = atom({
       content: '嶺上開花',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -343,20 +373,22 @@ export const yakuList = atom({
         ronDisabled: true,
         tsumoDisabled: false,
         shuntsuDisabled: false,
-        toitsuDisabled: true,
+        toitsuDisabled: false,
         kotsuDisabled: false,
         kantsuDisabled: false,
         jihaiDisabled: false,
       },
       kuisagari: '0',
-      IsDisabled: true,
+      IsDisabled: false,
     },
     {
       id: 'chankan',
       content: '槍槓',
       yakuNumber: '1',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -364,7 +396,7 @@ export const yakuList = atom({
         ronDisabled: false,
         tsumoDisabled: true,
         shuntsuDisabled: false,
-        toitsuDisabled: true,
+        toitsuDisabled: false,
         kotsuDisabled: false,
         kantsuDisabled: false,
         jihaiDisabled: false,
@@ -378,7 +410,9 @@ export const yakuList = atom({
       yakuNumber: '1',
       value: 0,
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -386,7 +420,7 @@ export const yakuList = atom({
         ronDisabled: false,
         tsumoDisabled: false,
         shuntsuDisabled: false,
-        toitsuDisabled: true,
+        toitsuDisabled: false,
         kotsuDisabled: false,
         kantsuDisabled: false,
         jihaiDisabled: false,
@@ -399,7 +433,9 @@ export const yakuList = atom({
       content: 'ダブル立直',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -420,7 +456,9 @@ export const yakuList = atom({
       content: '三色同順',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -441,7 +479,9 @@ export const yakuList = atom({
       content: '三色同刻',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -462,7 +502,9 @@ export const yakuList = atom({
       content: '対々和',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -483,7 +525,9 @@ export const yakuList = atom({
       content: '七対子',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -504,7 +548,9 @@ export const yakuList = atom({
       content: '一気通貫',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -525,7 +571,9 @@ export const yakuList = atom({
       content: '混全帯幺九',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -546,7 +594,9 @@ export const yakuList = atom({
       content: '三暗刻',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -567,14 +617,16 @@ export const yakuList = atom({
       content: '小三元',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
         koDisabled: false,
         ronDisabled: false,
         tsumoDisabled: false,
-        shuntsuDisabled: false,
+        shuntsuDisabled: true,
         toitsuDisabled: true,
         kotsuDisabled: false,
         kantsuDisabled: false,
@@ -588,7 +640,9 @@ export const yakuList = atom({
       content: '混老頭',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -609,7 +663,9 @@ export const yakuList = atom({
       content: '三槓子',
       yakuNumber: '2',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -630,7 +686,9 @@ export const yakuList = atom({
       content: '混一色',
       yakuNumber: '3',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -651,7 +709,9 @@ export const yakuList = atom({
       content: '二盃口',
       yakuNumber: '3',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -672,7 +732,9 @@ export const yakuList = atom({
       content: '純全帯公九',
       yakuNumber: '3',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -693,7 +755,9 @@ export const yakuList = atom({
       content: '清一色',
       yakuNumber: '6',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -714,7 +778,9 @@ export const yakuList = atom({
       content: '四暗刻',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -735,7 +801,9 @@ export const yakuList = atom({
       content: '大三元',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -756,7 +824,9 @@ export const yakuList = atom({
       content: '国士無双',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -777,7 +847,9 @@ export const yakuList = atom({
       content: '小四喜',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -798,7 +870,9 @@ export const yakuList = atom({
       content: '大四喜',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -819,7 +893,9 @@ export const yakuList = atom({
       content: '字一色',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -840,7 +916,9 @@ export const yakuList = atom({
       content: '清老頭',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -861,7 +939,9 @@ export const yakuList = atom({
       content: '緑一色',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -882,7 +962,9 @@ export const yakuList = atom({
       content: '四槓子',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: false,
         oyaDisabled: false,
@@ -903,7 +985,9 @@ export const yakuList = atom({
       content: '九蓮宝燈',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -924,7 +1008,9 @@ export const yakuList = atom({
       content: '地和',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: true,
@@ -945,7 +1031,9 @@ export const yakuList = atom({
       content: '天和',
       yakuNumber: '13',
       IsChecked: false,
-      yakuType: ['normal'],
+      yakuType: function () {
+        return setYakuType(this)
+      },
       disabledValues: {
         nakiDisabled: true,
         oyaDisabled: false,
@@ -959,7 +1047,375 @@ export const yakuList = atom({
         jihaiDisabled: false,
       },
       kuisagari: '0',
-      IsDisabled: true,
+      IsDisabled: false,
+    },
+    {
+      id: 'suanko_daisangen',
+      content: '四暗刻＋大三元',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'suanko_tsuiso',
+      content: '四暗刻＋字一色',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'tsuiso_daisangen',
+      content: '字一色＋大三元',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'tsuiso_shosushi',
+      content: '字一色＋小四喜',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'tsuiso_daisushi',
+      content: '字一色＋大四喜',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'ryuiso_suanko',
+      content: '緑一色＋四暗刻',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'ryuiso_sukantsu',
+      content: '緑一色＋四槓子',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'daisushi_sukantsu',
+      content: '大四喜＋四槓子',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'chinroto_suanko',
+      content: '清老頭＋四暗刻',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'chinroto_sukantsu',
+      content: '清老頭＋四槓子',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'sukantsu_suanko',
+      content: '四槓子＋四暗刻',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'sukantsu_tsuiso',
+      content: '四槓子＋字一色',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'suankoTanki',
+      content: '四暗刻単騎',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'kokushimusoJusanmenmachi',
+      content: '国士無双13面待ち',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'junseiChurenpoto',
+      content: '純正九蓮宝燈',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: true,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
+    },
+    {
+      id: 'hatsunashiRyuiso',
+      content: '發なし緑一色',
+      yakuNumber: '26',
+      IsChecked: false,
+      yakuType: function () {
+        return setYakuType(this)
+      },
+      disabledValues: {
+        nakiDisabled: false,
+        oyaDisabled: false,
+        koDisabled: false,
+        ronDisabled: false,
+        tsumoDisabled: false,
+        shuntsuDisabled: false,
+        toitsuDisabled: true,
+        kotsuDisabled: false,
+        kantsuDisabled: false,
+        jihaiDisabled: false,
+      },
+      kuisagari: '0',
+      IsDisabled: false,
     },
   ],
 })

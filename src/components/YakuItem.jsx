@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react'
 
 export const YakuItem = React.memo(
-  ({ yakuItem, handleClick, kuisagari, setYakuListState, labelColor }) => {
+  ({
+    yakuItem,
+    useUpdateYakuCheckState,
+    kuisagari,
+    setYakuListState,
+    labelColor,
+  }) => {
     return (
       <label className={`${labelColor(yakuItem)} py-1 px-2`}>
         <input
           id={yakuItem.id}
           className='hidden'
           type='checkbox'
-          data-yaku-type={yakuItem.yakuType}
           disabled={yakuItem.IsDisabled}
-          onClick={() => handleClick(yakuItem, setYakuListState)}
+          onClick={() => {
+            useUpdateYakuCheckState(yakuItem, setYakuListState)
+          }}
         />
         {yakuItem.content}
         {kuisagari(yakuItem.kuisagari) && (
