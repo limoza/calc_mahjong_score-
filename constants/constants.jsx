@@ -2,7 +2,7 @@ export const QuestionList = {
   naki: {
     id: 'naki',
     title: '鳴き',
-    description: 'ポン、チー、ミンカンをしていますか？',
+    description: 'ポン、チーをしていますか？',
     choices: ['はい', 'いいえ'],
     values: ['yes', 'no'],
   },

@@ -17,7 +17,7 @@ export const CountButton = React.memo(
   ({ countType, handleClick, yakuItem, labelColor }) => {
     return (
       <button
-        className={`${labelColor(yakuItem)} py-1 px-2`}
+        className={`${labelColor(yakuItem)} ml-3 py-1 px-3`}
         onClick={handleClick}
         disabled={yakuItem.IsDisabled}
       >

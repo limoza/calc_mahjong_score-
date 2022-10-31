@@ -5,7 +5,7 @@ export const DoraItem = React.memo(
   ({ yakuItem, handleClick, setYakuListState, labelColor }) => {
     return (
       <>
-        <div className='flex'>
+        <div className='flex items-center'>
           <p>ドラ:</p>
           <p>{yakuItem.value}</p>
           <CountButton

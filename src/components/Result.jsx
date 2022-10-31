@@ -56,10 +56,10 @@ export const Result = ({ title }) => {
           )}
         </ul>
         {!IsInRange && IsZero && (
-          <p className='bg-red-400'>{errorText.IsZero}</p>
+          <p className='text-right text-red-500'>{errorText.IsZero}</p>
         )}
         {!IsInRange && !IsZero && (
-          <p className='bg-red-400'>{errorText.IsOver}</p>
+          <p className='text-right text-red-500'>{errorText.IsOver}</p>
         )}
         {IsTsumo && (
           <>

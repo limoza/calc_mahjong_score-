@@ -38,11 +38,11 @@ export const useUpdateYakuDisabledState = (
           value: 0,
         }
       }
-      const IsIgnore = disabledKeysArray
-        .map((disabledKey) => item.disabledValues[disabledKey])
-        .every((elem) => !elem)
+      // const IsIgnore = disabledKeysArray
+      //   .map((disabledKey) => item.disabledValues[disabledKey])
+      //   .every((elem) => !elem)
 
-      if (IsIgnore) return item
+      // if (IsIgnore) return item
 
       const IsOyaSelected = selectedValues.includes('oya')
       const IsKoSelected = selectedValues.includes('ko')
