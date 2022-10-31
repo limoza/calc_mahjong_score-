@@ -9,10 +9,10 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
       }
     >
       <div
-        className='absolute top-0 right-0 h-screen w-screen bg-gray-900 opacity-80'
+        className='absolute top-0 right-0 z-10 h-screen w-screen bg-gray-900 opacity-80'
         onClick={() => SetIsOpen((prev) => !prev.IsOpen)}
       ></div>
-      <div className='absolute inset-0 m-auto h-5/6 w-10/12 '>
+      <div className='absolute inset-0 z-20 m-auto h-5/6 w-10/12'>
         <div className='h-full w-full overflow-y-auto bg-white p-3'>
           <ul>
             {yakus
