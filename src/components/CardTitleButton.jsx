@@ -6,7 +6,7 @@ import { useToggleModal } from '../hooks/useToggleModal'
 export const CardTitleButton = React.memo(
   ({ title, SetIsOpen, yakuNumber }) => {
     return (
-      <div className='flex justify-between'>
+      <div className='flex items-center justify-between'>
         <CardTitle title={title} />
         <Button
           clickHandler={useToggleModal}

@@ -9,7 +9,11 @@ export const YakuItem = React.memo(
     labelColor,
   }) => {
     return (
-      <label className={`${labelColor(yakuItem)} py-1 px-2`}>
+      <label
+        className={`${labelColor(
+          yakuItem,
+        )} block rounded border py-2 px-4 text-sm drop-shadow-sm`}
+      >
         <input
           id={yakuItem.id}
           className='hidden'

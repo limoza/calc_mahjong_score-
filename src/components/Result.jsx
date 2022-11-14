@@ -34,15 +34,15 @@ export const Result = ({ title }) => {
   // console.log(resultTsumoChildrenPaymentTemboImages)
 
   return (
-    <div className='sticky bottom-0 left-0 mt-4 border-t-2 border-solid border-blue-400 bg-blue-50 pb-3 '>
+    <div className='sticky bottom-0 left-0 mt-5 border-t-2 border-solid border-green-400 bg-green-50 pb-3 '>
       <Card>
         <CardTitle title={title} />
-        <ul className='rounded bg-gray-50 px-1 text-base text-gray-900'>
+        <ul className='mt-5 rounded bg-neutral-50 text-sm'>
           {selectedYakuList.map((SelectedItem) => {
             return (
               <li
                 key={SelectedItem.id}
-                className='flex justify-between border-b border-dashed border-gray-300 py-1'
+                className='flex justify-between border-b border-dashed border-neutral-300 p-2'
               >
                 <p>{SelectedItem.content}</p>
                 <p>{SelectedItem.yakuNumber}翻</p>
@@ -50,9 +50,7 @@ export const Result = ({ title }) => {
             )
           })}
           {sumYakuNumber && (
-            <li className='py-1 text-right text-base font-bold text-gray-900'>
-              {sumYakuNumber}翻
-            </li>
+            <li className='p-2 text-right font-bold'>{sumYakuNumber}翻</li>
           )}
         </ul>
         {!IsInRange && IsZero && (
@@ -63,8 +61,8 @@ export const Result = ({ title }) => {
         )}
         {IsTsumo && (
           <>
-            <div className='flex justify-end'>
-              <p className='mt-1 mr-1 text-right text-xl font-bold text-red-700'>
+            <div className='mt-3 flex justify-end'>
+              <p className='mt-1 text-right text-xl font-bold text-red-700'>
                 {resultName}
               </p>
               <p className='ml-3 text-right text-2xl font-bold'>
@@ -72,13 +70,23 @@ export const Result = ({ title }) => {
               </p>
             </div>
             {!IsOya && (
-              <p className='text-right text-lg'>
-                親払い: {resultTsumoParentPayment}点
-              </p>
+              <div className='mt-2 flex items-end justify-end'>
+                <p className='mt-1 items-end text-right text-lg leading-none'>
+                  親払い:
+                </p>
+                <p className='ml-3 items-end text-right text-xl leading-none'>
+                  {resultTsumoParentPayment}点
+                </p>
+              </div>
             )}
-            <p className='text-right text-lg'>
-              子払い: {resultTsumoChildrenPayment}点{IsOya && 'オール'}
-            </p>
+            <div className='mt-2 flex items-end justify-end'>
+              <p className='mt-1 items-end text-right text-lg leading-none'>
+                子払い:
+              </p>
+              <p className='ml-3 items-end text-right text-xl leading-none'>
+                {resultTsumoChildrenPayment}点{IsOya && 'オール'}
+              </p>
+            </div>
           </>
         )}
         {!IsTsumo && resultRonPayment && (

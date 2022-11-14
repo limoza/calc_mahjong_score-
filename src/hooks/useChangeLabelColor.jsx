@@ -6,13 +6,15 @@ export const useChangeButtonLabelColor = (yakuItem) => {
   const getNakiStatus = useRecoilValue(nakiStatus)
   const getRonTsumoStatus = useRecoilValue(ronTsumoStatus)
   if (yakuItem.IsChecked) {
-    return `bg-blue-300`
+    return `bg-green-700 border-green-700 text-white`
   } else if (yakuItem.IsDisabled) {
-    return `bg-gray-100 text-gray-200`
+    return `bg-gray-50 text-gray-400 border-gray-100`
   } else {
-    return `bg-gray-300`
+    return `bg-white border-gray-300`
   }
 }
 
 export const useChangeRadioLabelColor = (IsChecked) =>
-  IsChecked ? `bg-blue-300` : `bg-gray-300`
+  IsChecked
+    ? `bg-green-700 border-green-700 text-white`
+    : `bg-white border-gray-300`

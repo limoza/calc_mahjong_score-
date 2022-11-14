@@ -1,5 +1,5 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 export const Card = React.memo(({ children }) => (
-  <div className='mx-3 mt-4 rounded bg-white p-3'>{children}</div>
+  <div className='mx-2 mt-5 rounded bg-white p-5 drop-shadow'>{children}</div>
 ))

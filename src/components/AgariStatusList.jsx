@@ -15,7 +15,7 @@ export const AgariStatusList = React.memo(
     const [IsChecked, SetIsChecked] = useState(items.values[defaultCheck])
 
     return (
-      <ul className='mt-1 flex flex-wrap'>
+      <ul className='mt-5 flex flex-wrap'>
         {items.choices.map((choice, index) => {
           return (
             <li key={`${items.id}-${index}`}>
@@ -34,6 +34,7 @@ export const AgariStatusList = React.memo(
                   useChangeRadioLabelColor,
                   useUpdateAgariState,
                 }}
+                index={index}
               />
             </li>
           )

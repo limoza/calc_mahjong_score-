@@ -17,7 +17,7 @@ export const YakuContainer = React.memo(
     )
 
     return (
-      <ul className='mt-1 flex flex-wrap gap-3'>
+      <ul className='mt-5 flex flex-wrap gap-3'>
         {yakuItems.map((yakuItem) => {
           const IsDora = yakuItem.id === 'dora'
           return (

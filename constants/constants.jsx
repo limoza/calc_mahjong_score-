@@ -1,21 +1,21 @@
 export const QuestionList = {
   naki: {
     id: 'naki',
-    title: '鳴き',
+    title: 'ポン、チーをしていますか？',
     description: 'ポン、チーをしていますか？',
     choices: ['はい', 'いいえ'],
     values: ['yes', 'no'],
   },
   ronTsumo: {
     id: 'ronTsumo',
-    title: '上がり方',
+    title: 'ツモ、ロンどちらで上がりましたか？',
     description: 'ツモ、ロンどちらで上がりましたか？',
     choices: ['ツモ', 'ロン'],
     values: ['tsumo', 'ron'],
   },
   oya: {
     id: 'oya',
-    title: '親',
+    title: '親ですか？',
     description: '親ですか？',
     choices: ['親', '子'],
     values: ['oya', 'ko'],

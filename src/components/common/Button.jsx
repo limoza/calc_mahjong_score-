@@ -4,7 +4,7 @@ export const Button = React.memo(
   ({ children, clickHandler, SetIsOpen, yakuNumber }) => {
     return (
       <button
-        className={'bg-yellow-400 p-1'}
+        className={'text-sm font-bold text-blue-600'}
         onClick={() => clickHandler(SetIsOpen, yakuNumber)}
       >
         {children}
@@ -17,7 +17,9 @@ export const CountButton = React.memo(
   ({ countType, handleClick, yakuItem, labelColor }) => {
     return (
       <button
-        className={`${labelColor(yakuItem)} ml-3 py-1 px-3`}
+        className={`${labelColor(
+          yakuItem,
+        )} ml-3 h-11 w-11 rounded border border-gray-300 text-sm drop-shadow-sm`}
         onClick={handleClick}
         disabled={yakuItem.IsDisabled}
       >

@@ -56,9 +56,6 @@ const Home = React.memo(() => {
     yakuNumber: '',
   })
 
-  console.log(IsSelectedYakuman, '👈IsSelectedYakuman')
-  // console.log(selectedYakuType, '👈selectedYakuTypeSelector')
-
   useEffect(() => {
     useUpdateYakuDisabledState(
       setYakuListState,
@@ -80,61 +77,52 @@ const Home = React.memo(() => {
   ])
 
   return (
-    <div className={`${modalOpen.IsOpen && `fixed`} bg-gray-100`}>
-      <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
-      <KeyVisual />
-      <Card>
-        <CardTitle title={QuestionList.oya.title} />
-        <CardDescription description={QuestionList.oya.description} />
-        <AgariStatusList
-          items={getOyaStatus}
-          setAgariState={setOyaState}
-          setYakuListState={setYakuListState}
-        />
-      </Card>
+    <>
+      <main
+        className={`${modalOpen.IsOpen && `fixed`} bg-gray-100 text-gray-900`}
+      >
+        <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
+        <KeyVisual />
+        <Card>
+          <CardTitle title={QuestionList.oya.title} />
+          <AgariStatusList
+            items={getOyaStatus}
+            setAgariState={setOyaState}
+            setYakuListState={setYakuListState}
+          />
+          <CardTitle title={QuestionList.ronTsumo.title} className={`mt-5`} />
+          <AgariStatusList
+            items={getRonTsumoStatus}
+            setAgariState={setRonTsumoStatus}
+            setYakuListState={setYakuListState}
+          />
+          <CardTitle title={QuestionList.naki.title} className={`mt-5`} />
+          <AgariStatusList
+            items={getNakiStatus}
+            setAgariState={setNakiState}
+            setYakuListState={setYakuListState}
+          />
+        </Card>
 
-      <Card>
-        <CardTitle title={QuestionList.ronTsumo.title} />
-        <CardDescription description={QuestionList.ronTsumo.description} />
-        <AgariStatusList
-          items={getRonTsumoStatus}
-          setAgariState={setRonTsumoStatus}
-          setYakuListState={setYakuListState}
-        />
-      </Card>
-
-      <Card>
-        <CardTitle title={QuestionList.naki.title} />
-        <CardDescription description={QuestionList.naki.description} />
-        <AgariStatusList
-          items={getNakiStatus}
-          setAgariState={setNakiState}
-          setYakuListState={setYakuListState}
-        />
-      </Card>
-
-      {yakuNumberSections.map((yakuNumberSection, index) => {
-        return (
-          <Card key={`yakuNumberSection-${yakuNumberSection.yakuNumber}`}>
-            <CardTitleButton
-              title={`${yakuNumberSection.alias}`}
-              SetIsOpen={SetIsOpen}
-              yakuNumber={yakuNumberSection.yakuNumber}
-            />
-            <CardDescription
-              description={`${yakuNumberSection.alias}を選んでください`}
-            />
-            <YakuContainer
-              yakuItems={filteredItems[index]}
-              setYakuListState={setYakuListState}
-              nakiStatus={getNakiStatus}
-            />
-          </Card>
-        )
-      })}
-      <Result title='結果' />
-      <p className='bg-blue-300 bg-gray-100 bg-gray-300 text-gray-200'>test</p>
-    </div>
+        {yakuNumberSections.map((yakuNumberSection, index) => {
+          return (
+            <Card key={`yakuNumberSection-${yakuNumberSection.yakuNumber}`}>
+              <CardTitleButton
+                title={`${yakuNumberSection.alias}を選択してください`}
+                SetIsOpen={SetIsOpen}
+                yakuNumber={yakuNumberSection.yakuNumber}
+              />
+              <YakuContainer
+                yakuItems={filteredItems[index]}
+                setYakuListState={setYakuListState}
+                nakiStatus={getNakiStatus}
+              />
+            </Card>
+          )
+        })}
+        <Result title='結果' />
+      </main>
+    </>
   )
 })
 
