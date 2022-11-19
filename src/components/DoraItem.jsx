@@ -9,15 +9,15 @@ export const DoraItem = React.memo(
           <p>ドラ:</p>
           <p>{yakuItem.value}</p>
           <CountButton
-            countType='+'
-            yakuItem={yakuItem}
-            handleClick={() => handleClick(yakuItem, true, setYakuListState)}
-            labelColor={labelColor}
-          />
-          <CountButton
             countType='-'
             yakuItem={yakuItem}
             handleClick={() => handleClick(yakuItem, false, setYakuListState)}
+            labelColor={labelColor}
+          />
+          <CountButton
+            countType='+'
+            yakuItem={yakuItem}
+            handleClick={() => handleClick(yakuItem, true, setYakuListState)}
             labelColor={labelColor}
           />
         </div>
