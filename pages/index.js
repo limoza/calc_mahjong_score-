@@ -120,7 +120,7 @@ const Home = React.memo(() => {
             </Card>
           )
         })}
-        <Result title='結果' />
+        <Result title='点数' />
       </main>
     </>
   )

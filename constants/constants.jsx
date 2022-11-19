@@ -270,8 +270,7 @@ export const score = {
 }
 
 export const errorText = {
-  IsZero: '役を選択してください',
-  IsOver: '13翻を超えています。選択し直してください。',
+  IsOver: `13翻以下で選択してください`,
 }
 
 export const yakus = [
