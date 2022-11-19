@@ -42,7 +42,7 @@ export const Result = ({ title }) => {
             <p className='rounded-full bg-red-700 px-3 indent-0.5 font-bold tracking-widest text-white'>
               {resultName}
             </p>
-            <p className='ml-3 text-right text-2xl font-bold'>
+            <p className='ml-4 text-right text-2xl font-bold'>
               {!IsInRange && !IsZero ? (
                 <span className='text-lg text-red-500'>{errorText.IsOver}</span>
               ) : IsTsumo ? (
@@ -57,35 +57,16 @@ export const Result = ({ title }) => {
         </div>
 
         {IsTsumo && (
-          <div className='mt-2 flex justify-end'>
-            {!IsOya && (
-              <div className='flex items-end justify-end'>
-                <p className='items-end text-right leading-none'>親払い:</p>
-                <p className='ml-2 items-end text-right text-lg leading-none'>
-                  {resultTsumoParentPayment}点
-                </p>
-              </div>
-            )}
-            <div className='ml-5 flex items-end justify-end'>
-              <p className='items-end text-right leading-none'>子払い:</p>
-              <p className='ml-2 items-end text-right text-lg leading-none'>
-                {resultTsumoChildrenPayment}点{IsOya && 'オール'}
-              </p>
-            </div>
+          <div className='mt-2 flex justify-end text-right'>
+            {!IsOya && <p>親払い: {resultTsumoParentPayment}点</p>}
+            <p className='ml-4'>
+              子払い: {resultTsumoChildrenPayment}点{IsOya && 'オール'}
+            </p>
           </div>
         )}
-        {/* {!IsTsumo && resultRonPayment && (
-          <div className='flex items-center justify-end'>
-            <p className='rounded-full bg-red-700 px-3 font-bold tracking-widest text-white'>
-              {resultName}
-            </p>
-            <p className='ml-3 text-right text-2xl font-bold'>
-              {resultRonPayment}点
-            </p>
-          </div>
-        )} */}
+
         {selectedYakuList.length > 0 && (
-          <details className='mt-5 rounded bg-neutral-50 text-sm'>
+          <details className='mt-4 rounded bg-neutral-50 text-sm'>
             <summary className='py-1 text-right'>選択した役を見る</summary>
             <ul>
               {selectedYakuList.map((SelectedItem) => {
