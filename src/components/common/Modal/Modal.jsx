@@ -5,24 +5,55 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
   return (
     <div
       className={
-        modalOpen.IsOpen ? 'absolute  h-screen w-screen' : 'relative hidden'
+        modalOpen.IsOpen ? 'fixed z-10 h-full w-full' : 'relative hidden'
       }
     >
       <div
-        className='absolute top-0 right-0 z-10 h-screen w-screen bg-gray-900 opacity-60'
+        className='fixed inset-0 z-20 h-full w-full bg-gray-900 opacity-60'
         onClick={() => SetIsOpen((prev) => !prev.IsOpen)}
       ></div>
-      <div className='absolute inset-0 z-20 m-auto h-5/6 w-10/12'>
-        <div className='h-full w-full overflow-y-auto rounded bg-white p-5 drop-shadow-md'>
+      <div className='absolute inset-0 z-30 m-auto h-[calc(100%_-_1.5rem)] w-[calc(100%_-_1.5rem)]'>
+        <div className='h-full w-full overflow-y-auto rounded bg-white p-5'>
           <dl>
             {yakus
               .filter((yaku) => yaku.yakuNumber === modalOpen.yakuNumber)
               .map((yaku) => {
                 return (
-                  <div key={yaku.id} className='mt-5'>
-                    <dt className='text-lg font-bold'>{yaku.content}</dt>
-                    <dd className='mt-2'>画像が入ります</dd>
-                    <dd className='mt-2'>{yaku.explanation}</dd>
+                  <div
+                    key={yaku.id}
+                    className='mt-5 border-b border-dotted border-gray-300 pb-5'
+                  >
+                    <dt className='text-xl font-bold text-green-700'>
+                      {yaku.content}
+                    </dt>
+                    {yaku.explanationImage && (
+                      <dd className='mt-2'>画像が入ります</dd>
+                    )}
+                    <dd className='mt-2'>
+                      <p
+                        className='font-bold'
+                        dangerouslySetInnerHTML={{
+                          __html: yaku.explanationText,
+                        }}
+                      ></p>
+                      {yaku.annotationTexts.length > 0 && (
+                        <div className='mt-2 rounded bg-gray-50 px-3 py-2'>
+                          {yaku.annotationTexts.map((annotationText, index) => {
+                            return (
+                              <p
+                                key={`${yaku.id}-${index}`}
+                                className={`flex items-start before:mr-1.5 before:mt-1 before:block before:rounded-full before:bg-red-600 before:px-1.5 before:text-center before:text-xs before:font-bold before:text-white before:content-["!"] ${
+                                  index > 0 ? 'mt-0.5' : ''
+                                }`}
+                                dangerouslySetInnerHTML={{
+                                  __html: annotationText,
+                                }}
+                              ></p>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </dd>
                   </div>
                 )
               })}
