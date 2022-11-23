@@ -7,7 +7,6 @@ import { AgariStatusList } from '../src/components/AgariStatusList'
 import { Card } from '../src/components/Card'
 import { CardTitle } from '../src/components/CardTitle'
 import { CardTitleButton } from '../src/components/CardTitleButton'
-import { CardDescription } from '../src/components/CardDescription'
 import { Result } from '../src/components/Result'
 import { Modal } from '../src/components/common/Modal/Modal'
 

@@ -13,7 +13,6 @@ export const useUpdateYakuCheckState = (yakuItem, setYakuListState) => {
     return newYakuList
   })
 }
-
 export const useUpdateYakuDisabledState = (
   setYakuListState,
   disabledKeys,

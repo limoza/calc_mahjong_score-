@@ -362,7 +362,7 @@ export const yakus = [
     content: '一盃口',
     yakuNumber: '1',
     explanationImage: '',
-    explanationText: `一盃口の解説`,
+    explanationText: `同じ種類の牌で、同じ順子を揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -370,7 +370,7 @@ export const yakus = [
     content: '海底撈月',
     yakuNumber: '1',
     explanationImage: '',
-    explanationText: `海底撈月の解説`,
+    explanationText: `局の最後の牌でツモで上がると成立`,
     annotationTexts: [],
   },
   {
@@ -378,7 +378,7 @@ export const yakus = [
     content: '河底撈魚',
     yakuNumber: '1',
     explanationImage: '',
-    explanationText: `河底撈魚の解説`,
+    explanationText: `局の最後の打牌で上がると成立`,
     annotationTexts: [],
   },
   {
@@ -386,15 +386,15 @@ export const yakus = [
     content: '嶺上開花',
     yakuNumber: '1',
     explanationImage: '',
-    explanationText: `嶺上開花の解説`,
-    annotationTexts: [],
+    explanationText: `カンした時にツモる嶺上牌で上がると成立`,
+    annotationTexts: ['槍槓でロンされた場合は不成立'],
   },
   {
     id: 'chankan',
     content: '槍槓',
     yakuNumber: '1',
     explanationImage: '',
-    explanationText: `槍槓の解説`,
+    explanationText: `他家が加槓した牌で上がると成立`,
     annotationTexts: [],
   },
   {
@@ -402,23 +402,26 @@ export const yakus = [
     content: 'ドラ',
     yakuNumber: '1',
     explanationImage: '',
-    explanationText: `ドラの解説`,
-    annotationTexts: [],
+    explanationText: `ドラ牌を持っていることで成立`,
+    annotationTexts: [
+      `ドラ牌1枚ごとに1翻つく`,
+      `ドラは役ではないため、ドラのみで上がれない`,
+    ],
   },
   {
     id: 'doubleReach',
     content: 'ダブル立直',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `ダブル立直の解説`,
-    annotationTexts: [],
+    explanationText: `鳴きのない1巡目でリーチをかけることで成立`,
+    annotationTexts: [`リーチをかける前に他家が鳴いた場合は不成立`],
   },
   {
     id: 'sanshokuDoujun',
     content: '三色同順',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `三色同順の解説`,
+    explanationText: `萬子、筒子、索子のすべてで同じ数字の順子を揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -426,7 +429,7 @@ export const yakus = [
     content: '三色同刻',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `三色同刻の解説`,
+    explanationText: `萬子、筒子、索子のすべてで同じ数字の刻子を揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -434,7 +437,7 @@ export const yakus = [
     content: '対々和',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `対々和の解説`,
+    explanationText: `4つの面子をすべて刻子、もしくは槓子で揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -442,15 +445,15 @@ export const yakus = [
     content: '七対子',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `七対子の解説`,
-    annotationTexts: [],
+    explanationText: `対子を7つ揃えることで成立`,
+    annotationTexts: [`同牌が4枚の場合、2つの対子と見なされず、七対子は不成立`],
   },
   {
     id: 'ikkitsukan',
     content: '一気通貫',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `一気通貫の解説`,
+    explanationText: `萬子、筒子、索子のいずれか1種で、[123][456][789]の順子を揃えることで成立`,
     annotationTexts: [],
   },
   {
@@ -458,7 +461,7 @@ export const yakus = [
     content: '混全帯幺九',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `混全帯幺九の解説`,
+    explanationText: `面子と頭のすべてで、1,9牌もしくは字牌で含めて揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -466,15 +469,18 @@ export const yakus = [
     content: '三暗刻',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `三暗刻の解説`,
-    annotationTexts: [],
+    explanationText: `暗刻を3つ揃えると成立`,
+    annotationTexts: [
+      `鳴いていいのは残り1面子のみ`,
+      `3つ目の刻子をロンで揃えた場合は不成立`,
+    ],
   },
   {
     id: 'shosangen',
     content: '小三元',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `小三元の解説`,
+    explanationText: `白・發・中のいずれか1種で頭、残り2種で刻子もしくは槓子を揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -482,7 +488,7 @@ export const yakus = [
     content: '混老頭',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `混老頭の解説`,
+    explanationText: `面子と頭のすべてで、1,9牌もしくは字牌で揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -490,7 +496,7 @@ export const yakus = [
     content: '三槓子',
     yakuNumber: '2',
     explanationImage: '',
-    explanationText: `三槓子の解説`,
+    explanationText: `槓子を3つ揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -498,7 +504,7 @@ export const yakus = [
     content: '混一色',
     yakuNumber: '3',
     explanationImage: '',
-    explanationText: `混一色の解説`,
+    explanationText: `萬子、筒子、索子のいずれか1種のみと字牌で揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -506,7 +512,7 @@ export const yakus = [
     content: '二盃口',
     yakuNumber: '3',
     explanationImage: '',
-    explanationText: `二盃口の解説`,
+    explanationText: `同じ種類の牌で、同じ順子を2面子揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -514,7 +520,7 @@ export const yakus = [
     content: '純全帯公九',
     yakuNumber: '3',
     explanationImage: '',
-    explanationText: `純全帯公九の解説`,
+    explanationText: `面子と頭のすべてで、1,9牌を含めて揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -522,7 +528,7 @@ export const yakus = [
     content: '清一色',
     yakuNumber: '6',
     explanationImage: '',
-    explanationText: `清一色の解説`,
+    explanationText: `萬子、筒子、索子のいずれか1種のみで揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -530,15 +536,15 @@ export const yakus = [
     content: '四暗刻',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `四暗刻の解説`,
-    annotationTexts: [],
+    explanationText: `4つの面子をすべて暗刻で揃えると成立`,
+    annotationTexts: [`単騎待ちでない場合はツモ上がりのみ成立`],
   },
   {
     id: 'daisangen',
     content: '大三元',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `大三元の解説`,
+    explanationText: `白・發・中のすべてを刻子、もしくは槓子で揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -546,7 +552,7 @@ export const yakus = [
     content: '国士無双',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `国士無双の解説`,
+    explanationText: `萬子、筒子、索子の1,9牌と、字牌を各1枚揃え、いずれか一種類のみ2枚揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -554,7 +560,7 @@ export const yakus = [
     content: '小四喜',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `小四喜の解説`,
+    explanationText: `東,南,西,北のいずれか1種で頭、残り3種で刻子もしくは槓子を揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -562,7 +568,7 @@ export const yakus = [
     content: '大四喜',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `大四喜の解説`,
+    explanationText: `東,南,西,北のすべてを刻子、もしくは槓子を揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -570,7 +576,7 @@ export const yakus = [
     content: '字一色',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `字一色の解説`,
+    explanationText: `字牌のみで揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -578,7 +584,7 @@ export const yakus = [
     content: '清老頭',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `清老頭の解説`,
+    explanationText: `面子と頭のすべてで、1,9牌のみで揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -586,7 +592,7 @@ export const yakus = [
     content: '緑一色',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `緑一色の解説`,
+    explanationText: `索子の2,3,4,6,8と發のみで揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -594,7 +600,7 @@ export const yakus = [
     content: '四槓子',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `四槓子の解説`,
+    explanationText: `4つの面子をすべて槓子で揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -602,7 +608,7 @@ export const yakus = [
     content: '九蓮宝燈',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `九蓮宝燈の解説`,
+    explanationText: `萬子、筒子、索子のいずれか1種で、1,9牌を3枚ずつ、2~8を1枚ずつ揃える。さらに、1~9牌の1種類のみ、1枚追加で揃えると成立`,
     annotationTexts: [],
   },
   {
@@ -610,15 +616,15 @@ export const yakus = [
     content: '地和',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `地和の解説`,
-    annotationTexts: [],
+    explanationText: `自分が子の場合、第1回目のツモで上がると成立`,
+    annotationTexts: [`地震のツモより先に他家が鳴いた場合は不成立`],
   },
   {
     id: 'tenho',
     content: '天和',
     yakuNumber: '13',
     explanationImage: '',
-    explanationText: `天和の解説`,
+    explanationText: `自分が親の場合、配牌時に上がっていると成立`,
     annotationTexts: [],
   },
   {
@@ -626,7 +632,7 @@ export const yakus = [
     content: '四暗刻＋大三元',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '四暗刻＋大三元の解説',
+    explanationText: '四暗刻に、白,發,中の暗刻を揃えると成立',
     annotationTexts: [],
   },
   {
@@ -634,7 +640,7 @@ export const yakus = [
     content: '四暗刻＋字一色',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '四暗刻＋字一色の解説',
+    explanationText: '四暗刻を字牌のみで揃えると成立',
     annotationTexts: [],
   },
   {
@@ -642,7 +648,7 @@ export const yakus = [
     content: '字一色＋大三元',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '字一色＋大三元の解説',
+    explanationText: '白,發,中の刻子、もしくは槓子と、字牌のみで揃えると成立',
     annotationTexts: [],
   },
   {
@@ -650,7 +656,8 @@ export const yakus = [
     content: '字一色＋小四喜',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '字一色＋小四喜の解説',
+    explanationText:
+      '東,南,西,北のいずれか1種で頭、残り3種で刻子もしくは槓子を揃え、字牌のみで揃えると成立',
     annotationTexts: [],
   },
   {
@@ -658,7 +665,8 @@ export const yakus = [
     content: '字一色＋大四喜',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '字一色＋大四喜の解説',
+    explanationText:
+      '東,南,西,北のすべてを刻子、もしくは槓子を揃え、字牌のみで揃えると成立',
     annotationTexts: [],
   },
   {
@@ -666,7 +674,7 @@ export const yakus = [
     content: '緑一色＋四暗刻',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '緑一色＋四暗刻の解説',
+    explanationText: '索子の2,3,4,6,8と發のみで暗刻を揃えると成立',
     annotationTexts: [],
   },
   {
@@ -674,7 +682,7 @@ export const yakus = [
     content: '緑一色＋四槓子',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '緑一色＋四槓子の解説',
+    explanationText: '索子の2,3,4,6,8と發のみで槓子を揃えると成立',
     annotationTexts: [],
   },
   {
@@ -682,7 +690,7 @@ export const yakus = [
     content: '大四喜＋四槓子',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '大四喜＋四槓子の解説',
+    explanationText: '東,南,西,北のすべてを槓子で揃え、字牌のみで揃えると成立',
     annotationTexts: [],
   },
   {
@@ -690,7 +698,7 @@ export const yakus = [
     content: '清老頭＋四暗刻',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '清老頭＋四暗刻の解説',
+    explanationText: '1,9牌のみで4つ暗刻を揃えると成立',
     annotationTexts: [],
   },
   {
@@ -698,7 +706,7 @@ export const yakus = [
     content: '清老頭＋四槓子',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '清老頭＋四槓子の解説',
+    explanationText: '1,9牌のみで4つ槓子を揃えると成立',
     annotationTexts: [],
   },
   {
@@ -706,7 +714,7 @@ export const yakus = [
     content: '四槓子＋四暗刻',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '四槓子＋四暗刻の解説',
+    explanationText: '暗槓を4つ揃えると成立',
     annotationTexts: [],
   },
   {
@@ -714,7 +722,7 @@ export const yakus = [
     content: '四槓子＋字一色',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '四槓子＋字一色の解説',
+    explanationText: '字牌のみで、4つの面子をすべて槓子で揃えると成立',
     annotationTexts: [],
   },
   {
@@ -722,15 +730,15 @@ export const yakus = [
     content: '四暗刻単騎',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '四暗刻単騎の解説',
-    annotationTexts: [],
+    explanationText: '四暗刻の単騎待ちで上がると成立',
+    annotationTexts: [`単騎待ちの場合は、ロン上がりでも成立`],
   },
   {
     id: 'kokushimusoJusanmenmachi',
     content: '国士無双13面待ち',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '国士無双13面待ちの解説',
+    explanationText: `萬子、筒子、索子の1,9牌と、字牌を各1枚揃えテンパイした状態で上がると成立`,
     annotationTexts: [],
   },
   {
@@ -738,7 +746,8 @@ export const yakus = [
     content: '純正九蓮宝燈',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '純正九蓮宝燈の解説',
+    explanationText:
+      '萬子、筒子、索子のいずれか1種で、1,9牌を3枚ずつ、2~8を1枚ずつ揃えテンパイした状態で上がると成立',
     annotationTexts: [],
   },
   {
@@ -746,7 +755,7 @@ export const yakus = [
     content: '發なし緑一色',
     yakuNumber: '26',
     explanationImage: '',
-    explanationText: '發なし緑一色の解説',
+    explanationText: '索子の2,3,4,6,8のみで揃えると成立',
     annotationTexts: [],
   },
 ]

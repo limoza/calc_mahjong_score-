@@ -37,7 +37,7 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
                         }}
                       ></p>
                       {yaku.annotationTexts.length > 0 && (
-                        <div className='mt-2 rounded bg-gray-50 px-3 py-2'>
+                        <div className='mt-3 rounded bg-gray-50 px-3 py-2'>
                           {yaku.annotationTexts.map((annotationText, index) => {
                             return (
                               <p

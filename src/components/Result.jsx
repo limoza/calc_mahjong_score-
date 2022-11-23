@@ -35,6 +35,46 @@ export const Result = ({ title }) => {
 
   return (
     <div className='sticky bottom-0 left-0 mt-5 border-t-2 border-solid border-red-700 bg-red-50 pb-3 '>
+      {/* <button
+        className='absolute right-2 -top-12 rounded-full bg-green-700 p-1'
+        type='button'
+        onClick={() => window.location.reload()}
+      >
+        <svg
+          className='h-8 w-8 text-white'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'
+          />
+        </svg>
+      </button> */}
+      <button
+        className='absolute right-2 -top-10 flex items-center rounded-2xl bg-green-700 py-1 px-2'
+        type='button'
+        onClick={() => window.location.reload()}
+      >
+        <svg
+          className='h-6 w-6 text-white'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'
+          />
+        </svg>
+
+        <p className='ml-0.5 text-sm font-bold text-white'>選択をクリア</p>
+      </button>
       <Card className='mt-2'>
         <div className='flex items-center justify-between'>
           <CardTitle title={title} />
