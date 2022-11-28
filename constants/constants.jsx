@@ -284,7 +284,7 @@ export const yakus = [
   },
   {
     id: 'menzenchintsumo',
-    content: '門前自摸（ツモ）',
+    content: 'ツモ',
     yakuNumber: '1',
     explanationImage: '',
     explanationText: `ポン・チーなどをせずに、ツモによって上がることで成立`,

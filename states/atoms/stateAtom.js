@@ -84,7 +84,7 @@ export const yakuList = atom({
     },
     {
       id: 'menzenchintsumo',
-      content: '門前自摸（ツモ）',
+      content: 'ツモ',
       yakuNumber: '1',
       IsChecked: false,
       yakuType: function () {

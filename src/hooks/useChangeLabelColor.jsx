@@ -3,8 +3,6 @@ import { useRecoilValue } from 'recoil'
 import { nakiStatus, ronTsumoStatus } from '../../states/atoms/stateAtom'
 
 export const useChangeButtonLabelColor = (yakuItem) => {
-  const getNakiStatus = useRecoilValue(nakiStatus)
-  const getRonTsumoStatus = useRecoilValue(ronTsumoStatus)
   if (yakuItem.IsChecked) {
     return `bg-green-700 border-green-700 text-white`
   } else if (yakuItem.IsDisabled) {

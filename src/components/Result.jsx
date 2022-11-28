@@ -36,7 +36,7 @@ export const Result = ({ title }) => {
   return (
     <div className='sticky bottom-0 left-0 mt-5 border-t-2 border-solid border-red-700 bg-white p-3'>
       <button
-        className='absolute right-2 -top-10 flex items-center rounded-2xl bg-green-700 py-1 px-2'
+        className='absolute right-2 -top-11 flex items-center rounded bg-green-700 py-1.5 px-2'
         type='button'
         onClick={() => window.location.reload()}
       >
