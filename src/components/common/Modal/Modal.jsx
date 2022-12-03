@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { yakus } from '../../../../constants/constants'
+import Image from 'next/image'
 
 export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
+  const ref = React.createRef()
+  const scrollTop = useCallback(() => {
+    ref.current.scrollIntoView()
+  }, [ref])
+
   return (
     <div
       className={
@@ -10,28 +16,45 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
     >
       <div
         className='fixed inset-0 z-20 h-full w-full bg-gray-900 opacity-60'
-        onClick={() => SetIsOpen((prev) => !prev.IsOpen)}
+        onClick={() => {
+          SetIsOpen((prev) => !prev.IsOpen)
+          scrollTop()
+        }}
       ></div>
       <div className='absolute inset-0 z-30 m-auto h-[calc(100%_-_1.5rem)] w-[calc(100%_-_1.5rem)]'>
-        <div className='h-full w-full overflow-y-auto rounded bg-white p-5'>
+        <div className='m-auto h-full w-full max-w-5xl overflow-y-auto rounded bg-white p-5'>
+          <div ref={ref}></div>
           <dl>
             {yakus
               .filter((yaku) => yaku.yakuNumber === modalOpen.yakuNumber)
               .map((yaku) => {
+                const imagePath = () => {
+                  const imageName = yaku.explanationImage
+                    ? yaku.explanationImage
+                    : yaku.id
+                  return `/images/${imageName}.png`
+                }
+
                 return (
                   <div
                     key={yaku.id}
-                    className='mt-5 border-b border-dotted border-gray-300 pb-5'
+                    className='mt-8 border-b border-dotted border-gray-300 pb-8'
                   >
-                    <dt className='text-xl font-bold text-green-700'>
+                    <dt className='text-2xl font-bold text-green-700'>
                       {yaku.content}
                     </dt>
-                    {yaku.explanationImage && (
-                      <dd className='mt-2'>画像が入ります</dd>
-                    )}
-                    <dd className='mt-2'>
+                    <dd className='mt-3 [&>span]:!relative '>
+                      <Image
+                        className='!relative !h-full !w-full'
+                        src={imagePath()}
+                        layout='fill'
+                        objectFit='contain'
+                        alt={yaku.content}
+                      />
+                    </dd>
+                    <dd className='mt-3'>
                       <p
-                        className='font-bold'
+                        className=''
                         dangerouslySetInnerHTML={{
                           __html: yaku.explanationText,
                         }}
@@ -61,11 +84,14 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
         </div>
         <button
           className='
-            absolute top-0 right-0 block h-11 w-11
+            absolute top-0 right-0 block h-11 w-11 rounded-full bg-gray-50 bg-opacity-70
             before:absolute before:inset-0 before:m-auto before:block before:h-0 before:w-6 before:rotate-45 before:rounded before:border-t-2 before:border-gray-600 before:content-[""]
             after:absolute after:inset-0 after:m-auto after:block after:h-0 after:w-6 after:-rotate-45 after:rounded after:border-t-2 after:border-gray-600 after:content-[""]
           '
-          onClick={() => SetIsOpen((prev) => !prev.IsOpen)}
+          onClick={() => {
+            scrollTop()
+            SetIsOpen((prev) => !prev.IsOpen)
+          }}
         ></button>
       </div>
     </div>
