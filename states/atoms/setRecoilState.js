@@ -1,5 +1,5 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { yakuList, nakiStatus, oyaStatus } from '../../states/atoms/stateAtom'
+import { yakuList, nakiStatus, oyaStatus } from '@/states/atoms/stateAtom'
 
 // export const setYakuCheckStatus = (id) => {
 //   const setYakuStatus = useSetRecoilState(yakuList)

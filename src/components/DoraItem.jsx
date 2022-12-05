@@ -1,5 +1,5 @@
 import React from 'react'
-import { CountButton } from './common/Button'
+import { CountButton } from '@/components/common/Button'
 
 export const DoraItem = React.memo(
   ({ yakuItem, handleClick, setYakuListState, labelColor }) => {

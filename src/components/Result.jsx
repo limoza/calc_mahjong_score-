@@ -4,10 +4,10 @@ import {
   selectedYakuListSelector,
   scoreSelector,
   temboImageSelector,
-} from '../../states/selector/stateSelector'
-import { Card } from './Card'
-import { CardTitle } from './CardTitle'
-import { errorText } from '../../constants/constants'
+} from '@/states/selector/stateSelector'
+import { Card } from '@/components/Card'
+import { CardTitle } from '@/components/CardTitle'
+import { errorText } from '@/constants/constants'
 
 export const Result = ({ title }) => {
   const selectedYakuList = useRecoilValue(selectedYakuListSelector)

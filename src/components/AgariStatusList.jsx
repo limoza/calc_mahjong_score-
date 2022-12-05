@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ItemSelectRadio } from './ItemSelectRadio'
+import { ItemSelectRadio } from '@/components/ItemSelectRadio'
 
-import { useUpdateAgariState } from '../hooks/useUpdateAgariState'
-import { useChangeRadioLabelColor } from '../hooks/useChangeLabelColor'
+import { useUpdateAgariState } from '@/hooks/useUpdateAgariState'
+import { useChangeRadioLabelColor } from '@/hooks/useChangeLabelColor'
 
 export const AgariStatusList = React.memo(
   ({

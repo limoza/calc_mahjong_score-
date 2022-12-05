@@ -1,5 +1,5 @@
 import { atom } from 'recoil'
-import { QuestionList } from '../../constants/constants'
+import { QuestionList, yakus } from '@/constants/constants'
 
 export const nakiStatus = atom({
   key: 'nakiStatus',
@@ -56,6 +56,17 @@ const setYakuType = (arg) => {
   return yakuType.length < 5 ? yakuType : ['normal']
 }
 
+const getYakuNumber = (arg) => {
+  console.log(arg)
+  // yakus.map((yaku) => {
+  //   return yaku.id === arg.id
+  //     ? {
+  //         yakuNumber: yaku.yakuNumber,
+  //       }
+  //     : false
+  // })
+}
+
 export const yakuList = atom({
   key: 'yakuList',
   default: [
@@ -63,6 +74,10 @@ export const yakuList = atom({
       id: 'reach',
       content: '立直',
       yakuNumber: '1',
+      // yakuNumber: ((arg) => {
+      //   console.log(this)
+      //   // return getYakuNumber(arg)
+      // })(this),
       IsChecked: false,
       yakuType: function () {
         return setYakuType(this)

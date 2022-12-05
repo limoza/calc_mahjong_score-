@@ -1,5 +1,3 @@
-import React, { useState, useCallback } from 'react'
-
 export const useUpdateYakuCheckState = (yakuItem, setYakuListState) => {
   setYakuListState((prev) => {
     const newYakuList = prev.map((item) => {

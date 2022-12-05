@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react'
-import { YakuItem } from './YakuItem'
-import { DoraItem } from './DoraItem'
+import { YakuItem } from '@/components/YakuItem'
+import { DoraItem } from '@/components/DoraItem'
 import {
   useUpdateYakuCheckState,
   useUpdateDoraState,
-} from '../hooks/useUpdateYakuState'
-import { useChangeButtonLabelColor } from '../hooks/useChangeLabelColor'
+} from '@/hooks/useUpdateYakuState'
+import { useChangeButtonLabelColor } from '@/hooks/useChangeLabelColor'
 
 export const YakuContainer = React.memo(
   ({ yakuItems, setYakuListState, nakiStatus }) => {

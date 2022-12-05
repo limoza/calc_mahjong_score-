@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react'
-import { yakus } from '../../../../constants/constants'
-import Image from 'next/image'
+import { YakuExplanationList } from '@/components/YakuExplanationList'
 
 export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
   const ref = React.createRef()
@@ -23,64 +22,11 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
       ></div>
       <div className='absolute inset-0 z-30 m-auto h-[calc(100%_-_1.5rem)] w-[calc(100%_-_1.5rem)]'>
         <div className='m-auto h-full w-full max-w-5xl overflow-y-auto rounded bg-white p-5'>
-          <div ref={ref}></div>
-          <dl>
-            {yakus
-              .filter((yaku) => yaku.yakuNumber === modalOpen.yakuNumber)
-              .map((yaku) => {
-                const imagePath = () => {
-                  const imageName = yaku.explanationImage
-                    ? yaku.explanationImage
-                    : yaku.id
-                  return `/images/${imageName}.png`
-                }
-
-                return (
-                  <div
-                    key={yaku.id}
-                    className='mt-8 border-b border-dotted border-gray-300 pb-8'
-                  >
-                    <dt className='text-2xl font-bold text-green-700'>
-                      {yaku.content}
-                    </dt>
-                    <dd className='mt-3 [&>span]:!relative '>
-                      <Image
-                        className='!relative !h-full !w-full'
-                        src={imagePath()}
-                        layout='fill'
-                        objectFit='contain'
-                        alt={yaku.content}
-                      />
-                    </dd>
-                    <dd className='mt-3'>
-                      <p
-                        className=''
-                        dangerouslySetInnerHTML={{
-                          __html: yaku.explanationText,
-                        }}
-                      ></p>
-                      {yaku.annotationTexts.length > 0 && (
-                        <div className='mt-3 rounded bg-gray-50 px-3 py-2'>
-                          {yaku.annotationTexts.map((annotationText, index) => {
-                            return (
-                              <p
-                                key={`${yaku.id}-${index}`}
-                                className={`flex items-start before:mr-1.5 before:mt-1 before:block before:rounded-full before:bg-red-600 before:px-1.5 before:text-center before:text-xs before:font-bold before:text-white before:content-["!"] ${
-                                  index > 0 ? 'mt-0.5' : ''
-                                }`}
-                                dangerouslySetInnerHTML={{
-                                  __html: annotationText,
-                                }}
-                              ></p>
-                            )
-                          })}
-                        </div>
-                      )}
-                    </dd>
-                  </div>
-                )
-              })}
-          </dl>
+          <YakuExplanationList
+            yakuNumber={modalOpen.yakuNumber}
+            yakuAlias={modalOpen.yakuAlias}
+            ref={ref}
+          />
         </div>
         <button
           className='

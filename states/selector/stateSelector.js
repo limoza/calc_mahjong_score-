@@ -1,11 +1,11 @@
 import { selector } from 'recoil'
-import { yakuList, nakiStatus, oyaStatus } from '../atoms/stateAtom'
+import { yakuList, nakiStatus, oyaStatus } from '@/states/atoms/stateAtom'
 import {
   yakuNumberGroup,
   yakuEnglishNameGroup,
   score,
   yakuNumberSections,
-} from '../../constants/constants'
+} from '@/constants/constants'
 
 export const yakuNumberSectionSelector = selector({
   key: 'yakuNumberSectionSelector',

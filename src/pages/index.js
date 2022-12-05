@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
 
-import { Body } from '../components/Body'
-import { KeyVisual } from '../components/KeyVisual'
-import { YakuContainer } from '../components/YakuList'
-import { AgariStatusList } from '../components/AgariStatusList'
-import { Card } from '../components/Card'
-import { CardTitle } from '../components/CardTitle'
-import { CardTitleButton } from '../components/CardTitleButton'
-import { Result } from '../components/Result'
-import { Modal } from '../components/common/Modal/Modal'
+import { Body } from '@/components/Body'
+import { KeyVisual } from '@/components/KeyVisual'
+import { YakuContainer } from '@/components/YakuList'
+import { AgariStatusList } from '@/components/AgariStatusList'
+import { Card } from '@/components/Card'
+import { CardTitle } from '@/components/CardTitle'
+import { CardTitleButton } from '@/components/CardTitleButton'
+import { Result } from '@/components/Result'
+import { Modal } from '@/components/common/Modal/Modal'
 
 import { useRecoilValue, useRecoilState } from 'recoil'
 import {
@@ -16,19 +16,19 @@ import {
   nakiStatus,
   oyaStatus,
   ronTsumoStatus,
-} from '../../states/atoms/stateAtom'
+} from '@/states/atoms/stateAtom'
 import {
   QuestionList,
   disabledKeys,
   yakuNumberSections,
-} from '../../constants/constants'
+} from '@/constants/constants'
 
 import {
   yakuNumberSectionSelector,
   selectedYakuTypeSelector,
   IsSelectedYakumanSelector,
-} from '../../states/selector/stateSelector'
-import { useUpdateYakuDisabledState } from '../hooks/useUpdateYakuState'
+} from '@/states/selector/stateSelector'
+import { useUpdateYakuDisabledState } from '@/hooks/useUpdateYakuState'
 
 const Home = React.memo(() => {
   const getNakiStatus = useRecoilValue(nakiStatus)
@@ -110,6 +110,7 @@ const Home = React.memo(() => {
                 title={`${yakuNumberSection.alias}を選択してください`}
                 SetIsOpen={SetIsOpen}
                 yakuNumber={yakuNumberSection.yakuNumber}
+                yakuAlias={yakuNumberSection.alias}
               />
               <YakuContainer
                 yakuItems={filteredItems[index]}

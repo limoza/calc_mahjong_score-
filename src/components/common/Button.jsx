@@ -1,11 +1,11 @@
 import React from 'react'
 
 export const Button = React.memo(
-  ({ children, clickHandler, SetIsOpen, yakuNumber }) => {
+  ({ children, clickHandler, SetIsOpen, yakuNumber, yakuAlias }) => {
     return (
       <button
         className={'text-sm font-bold text-blue-600'}
-        onClick={() => clickHandler(SetIsOpen, yakuNumber)}
+        onClick={() => clickHandler(SetIsOpen, yakuNumber, yakuAlias)}
       >
         {children}
       </button>

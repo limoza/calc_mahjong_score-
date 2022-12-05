@@ -1,7 +1,3 @@
-import React, { useCallback } from 'react'
-import { useRecoilValue } from 'recoil'
-import { nakiStatus, ronTsumoStatus } from '../../states/atoms/stateAtom'
-
 export const useChangeButtonLabelColor = (yakuItem) => {
   if (yakuItem.IsChecked) {
     return `bg-green-700 border-green-700 text-white`
