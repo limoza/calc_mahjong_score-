@@ -1,13 +1,13 @@
 import React from 'react'
 import { yakus } from '@/constants/constants'
-import { CardTitle } from '@/components/CardTitle'
+import { Title } from '@/components/Title'
 import Image from 'next/image'
 
 export const YakuExplanationList = React.forwardRef(
   ({ yakuNumber, yakuAlias }, ref) => {
     return (
       <>
-        <CardTitle title={`${yakuAlias}の解説`} ref={ref} />
+        <Title title={`${yakuAlias}の解説`} ref={ref} />
         <dl>
           {yakus
             .filter((yaku) => yaku.yakuNumber === yakuNumber)

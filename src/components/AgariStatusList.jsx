@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ItemSelectRadio } from '@/components/ItemSelectRadio'
+import { RadioButton } from '@/components/common/Button'
 
 import { useUpdateAgariState } from '@/hooks/useUpdateAgariState'
 import { useChangeRadioLabelColor } from '@/hooks/useChangeLabelColor'
@@ -19,7 +19,7 @@ export const AgariStatusList = React.memo(
         {items.choices.map((choice, index) => {
           return (
             <li key={`${items.id}-${index}`}>
-              <ItemSelectRadio
+              <RadioButton
                 id={items.id}
                 choice={choice}
                 value={items.values[index]}

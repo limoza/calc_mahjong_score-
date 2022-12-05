@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { Body } from '@/components/Body'
 import { KeyVisual } from '@/components/KeyVisual'
-import { YakuContainer } from '@/components/YakuList'
+import { YakuList } from '@/components/YakuList'
 import { AgariStatusList } from '@/components/AgariStatusList'
 import { Card } from '@/components/Card'
-import { CardTitle } from '@/components/CardTitle'
-import { CardTitleButton } from '@/components/CardTitleButton'
+import { Title } from '@/components/Title'
+import { TitleButton } from '@/components/TitleButton'
 import { Result } from '@/components/Result'
-import { Modal } from '@/components/common/Modal/Modal'
+import { Modal } from '@/components/Modal'
 
 import { useRecoilValue, useRecoilState } from 'recoil'
 import {
@@ -83,19 +82,19 @@ const Home = React.memo(() => {
         <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
         <KeyVisual />
         <Card>
-          <CardTitle title={QuestionList.oya.title} />
+          <Title title={QuestionList.oya.title} />
           <AgariStatusList
             items={getOyaStatus}
             setAgariState={setOyaState}
             setYakuListState={setYakuListState}
           />
-          <CardTitle title={QuestionList.ronTsumo.title} className={`mt-5`} />
+          <Title title={QuestionList.ronTsumo.title} className={`mt-5`} />
           <AgariStatusList
             items={getRonTsumoStatus}
             setAgariState={setRonTsumoStatus}
             setYakuListState={setYakuListState}
           />
-          <CardTitle title={QuestionList.naki.title} className={`mt-5`} />
+          <Title title={QuestionList.naki.title} className={`mt-5`} />
           <AgariStatusList
             items={getNakiStatus}
             setAgariState={setNakiState}
@@ -106,13 +105,13 @@ const Home = React.memo(() => {
         {yakuNumberSections.map((yakuNumberSection, index) => {
           return (
             <Card key={`yakuNumberSection-${yakuNumberSection.yakuNumber}`}>
-              <CardTitleButton
+              <TitleButton
                 title={`${yakuNumberSection.alias}を選択してください`}
                 SetIsOpen={SetIsOpen}
                 yakuNumber={yakuNumberSection.yakuNumber}
                 yakuAlias={yakuNumberSection.alias}
               />
-              <YakuContainer
+              <YakuList
                 yakuItems={filteredItems[index]}
                 setYakuListState={setYakuListState}
                 nakiStatus={getNakiStatus}

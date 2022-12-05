@@ -1,21 +1,21 @@
 import React from 'react'
-import { CardTitle } from '@/components/CardTitle'
-import { Button } from '@/components/common/Button'
+import { Title } from '@/components/Title'
+import { TextButton } from '@/components/common/Button'
 import { useToggleModal } from '@/hooks/useToggleModal'
 
-export const CardTitleButton = React.memo(
+export const TitleButton = React.memo(
   ({ title, SetIsOpen, yakuNumber, yakuAlias }) => {
     return (
       <div className='flex items-center justify-between'>
-        <CardTitle title={title} />
-        <Button
+        <Title title={title} />
+        <TextButton
           clickHandler={useToggleModal}
           SetIsOpen={SetIsOpen}
           yakuNumber={yakuNumber}
           yakuAlias={yakuAlias}
         >
           役解説
-        </Button>
+        </TextButton>
       </div>
     )
   },

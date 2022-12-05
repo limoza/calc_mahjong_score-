@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CardTitle = React.forwardRef(({ title, className }, ref) => {
+export const Title = React.forwardRef(({ title, className }, ref) => {
   return (
     <h2
       className={`text-lg font-bold leading-none ${className}`}

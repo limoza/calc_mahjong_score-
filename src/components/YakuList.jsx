@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { YakuItem } from '@/components/YakuItem'
+import { YakuButton } from '@/components/common/Button'
 import { DoraItem } from '@/components/DoraItem'
 import {
   useUpdateYakuCheckState,
@@ -7,7 +7,7 @@ import {
 } from '@/hooks/useUpdateYakuState'
 import { useChangeButtonLabelColor } from '@/hooks/useChangeLabelColor'
 
-export const YakuContainer = React.memo(
+export const YakuList = React.memo(
   ({ yakuItems, setYakuListState, nakiStatus }) => {
     const calcKuisagari = useCallback(
       (kuisagari) => {
@@ -30,7 +30,7 @@ export const YakuContainer = React.memo(
                   labelColor={useChangeButtonLabelColor}
                 />
               ) : (
-                <YakuItem
+                <YakuButton
                   yakuItem={yakuItem}
                   useUpdateYakuCheckState={useUpdateYakuCheckState}
                   kuisagari={calcKuisagari}

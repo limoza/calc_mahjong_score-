@@ -6,7 +6,7 @@ import {
   temboImageSelector,
 } from '@/states/selector/stateSelector'
 import { Card } from '@/components/Card'
-import { CardTitle } from '@/components/CardTitle'
+import { Title } from '@/components/Title'
 import { errorText } from '@/constants/constants'
 
 export const Result = ({ title }) => {
@@ -57,7 +57,7 @@ export const Result = ({ title }) => {
         <p className='ml-0.5 text-sm font-bold text-white'>選択をクリア</p>
       </button>
       <div className='flex items-center justify-between'>
-        <CardTitle title={title} />
+        <Title title={title} />
         <div className='flex items-center justify-end'>
           <p className='rounded-full bg-red-700 px-3 indent-0.5 font-bold tracking-widest text-white'>
             {resultName}
