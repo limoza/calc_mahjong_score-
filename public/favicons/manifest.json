@@ -1,6 +1,6 @@
 {
-  "name": "\u304b\u3093\u305f\u3093\u70b9\u6570\u8a08\u7b97",
-  "short_name": "\u304b\u3093\u305f\u3093\u70b9\u6570\u8a08\u7b97",
+  "name": "かんたん麻雀点数計算",
+  "short_name": "かんたん点数計算",
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",

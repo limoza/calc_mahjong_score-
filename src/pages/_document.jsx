@@ -22,12 +22,7 @@ export default class Document extends NextDocument {
             sizes='16x16'
             href='/favicons/favicon-16x16.png'
           />
-          <link rel='manifest' href='/favicons/site.webmanifest' />
-          <link
-            rel='mask-icon'
-            href='/favicons/safari-pinned-tab.svg'
-            color='#000000'
-          />
+          <link rel='manifest' href='/favicons/manifest.json' />
           <meta name='msapplication-TileColor' content='#ffffff' />
           <meta name='theme-color' content='#ffffff' />
         </Head>
