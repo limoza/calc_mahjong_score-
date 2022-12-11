@@ -126,9 +126,14 @@ export const useUpdateDoraState = (yakuItem, IsUp, setYakuListState) => {
         --value
       }
 
+      console.log(value)
+      const disabledType = value === 0 ? 'minus' : value === 13 ? 'plus' : false
+
       return {
         ...item,
         value: value,
+        IsPlusDisabled: disabledType === 'plus',
+        IsMinusDisabled: disabledType === 'minus',
       }
     })
     return newYakuList

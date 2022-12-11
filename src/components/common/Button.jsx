@@ -14,14 +14,14 @@ export const TextButton = React.memo(
 )
 
 export const CountButton = React.memo(
-  ({ countType, handleClick, yakuItem, labelColor }) => {
+  ({ countType, handleClick, labelColor, disabled }) => {
     return (
       <button
         className={`${labelColor(
-          yakuItem,
+          disabled,
         )} ml-3 h-11 w-11 rounded border border-gray-300 text-sm drop-shadow-sm`}
         onClick={handleClick}
-        disabled={yakuItem.IsDisabled}
+        disabled={disabled}
       >
         {countType}
       </button>

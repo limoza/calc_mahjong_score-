@@ -441,7 +441,8 @@ export const yakuList = atom({
         jihaiDisabled: false,
       },
       kuisagari: '0',
-      IsDisabled: false,
+      IsPlusDisabled: false,
+      IsMinusDisabled: true,
     },
     {
       id: 'doubleReach',

@@ -5,7 +5,10 @@ import {
   useUpdateYakuCheckState,
   useUpdateDoraState,
 } from '@/hooks/useUpdateYakuState'
-import { useChangeButtonLabelColor } from '@/hooks/useChangeLabelColor'
+import {
+  useChangeButtonLabelColor,
+  useChangeDoraButtonLabelColor,
+} from '@/hooks/useChangeLabelColor'
 
 export const YakuList = React.memo(
   ({ yakuItems, setYakuListState, nakiStatus }) => {
@@ -27,7 +30,7 @@ export const YakuList = React.memo(
                   yakuItem={yakuItem}
                   handleClick={useUpdateDoraState}
                   setYakuListState={setYakuListState}
-                  labelColor={useChangeButtonLabelColor}
+                  labelColor={useChangeDoraButtonLabelColor}
                 />
               ) : (
                 <YakuButton
