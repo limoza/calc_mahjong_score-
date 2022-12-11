@@ -3,8 +3,20 @@ import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html>
+      <Html lang='ja'>
         <Head>
+          <title>
+            【役解説付き】かんたんに麻雀の点数計算ができる無料サイト【かんたん麻雀点数計算】
+          </title>
+          <meta name='robots' content='noindex , nofollow' />
+          <meta
+            name='description'
+            content='【充実の役解説付き】誰でも”かんたん”に麻雀の点数計算ができる！上がった役を一覧から選ぶだけ！親、子それぞれの点数が簡単に分かる！ご利用は完全無料！画像付きで充実の役解説も！'
+          />
+          <meta
+            name='keywords'
+            content='麻雀,麻雀 点数計算,マージャン 点数計算,麻雀 点数計算 簡単,マージャン 点数計算 簡単,麻雀 点数計算 簡単 サイト,マージャン 点数計算 簡単 サイト,麻雀 役解説,マージャン 役解説'
+          />
           <link
             rel='apple-touch-icon'
             sizes='180x180'
