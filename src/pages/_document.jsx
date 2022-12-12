@@ -8,7 +8,7 @@ export default class Document extends NextDocument {
           <title>
             【役解説付き】かんたんに麻雀の点数計算ができる無料サイト【かんたん麻雀点数計算】
           </title>
-          <meta name='robots' content='noindex , nofollow' />
+          <meta name='robots' content='noindex, nofollow' />
           <meta
             name='description'
             content='【充実の役解説付き】誰でも”かんたん”に麻雀の点数計算ができる！上がった役を一覧から選ぶだけ！親、子それぞれの点数が簡単に分かる！ご利用は完全無料！画像付きで充実の役解説も！'
@@ -55,7 +55,6 @@ export default class Document extends NextDocument {
             href='/favicons/favicon-16x16.png'
           />
           <link rel='manifest' href='/favicons/manifest.json' />
-          <meta name='msapplication-TileColor' content='#ffffff' />
           <meta name='theme-color' content='#ffffff' />
         </Head>
         <body>

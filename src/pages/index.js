@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { KeyVisual } from '@/components/KeyVisual'
+import { Header } from '@/components/Header'
 import { YakuList } from '@/components/YakuList'
 import { AgariStatusList } from '@/components/AgariStatusList'
 import { Card } from '@/components/Card'
@@ -51,7 +51,6 @@ const Home = React.memo(() => {
 
   const [modalOpen, SetIsOpen] = useState({
     IsOpen: false,
-    yakuNumber: '',
   })
 
   useEffect(() => {
@@ -76,11 +75,11 @@ const Home = React.memo(() => {
 
   return (
     <>
+      <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
+      <Header />
       <main
         className={`${modalOpen.IsOpen && `fixed`} bg-gray-100 text-gray-900`}
       >
-        <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
-        <KeyVisual />
         <Card>
           <Title title={QuestionList.oya.title} />
           <AgariStatusList
