@@ -31,14 +31,26 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
         <button
           className='
             absolute top-0 right-0 block h-11 w-11 rounded-full bg-gray-50 bg-opacity-70
-            before:absolute before:inset-0 before:m-auto before:block before:h-0 before:w-6 before:rotate-45 before:rounded before:border-t-2 before:border-gray-600 before:content-[""]
-            after:absolute after:inset-0 after:m-auto after:block after:h-0 after:w-6 after:-rotate-45 after:rounded after:border-t-2 after:border-gray-600 after:content-[""]
           '
           onClick={() => {
             scrollTop()
             SetIsOpen((prev) => !prev.IsOpen)
           }}
-        ></button>
+        >
+          <svg
+            className='m-auto h-8 w-8 text-gray-600'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          >
+            {' '}
+            <line x1='18' y1='6' x2='6' y2='18' />{' '}
+            <line x1='6' y1='6' x2='18' y2='18' />
+          </svg>
+        </button>
       </div>
     </div>
   )
