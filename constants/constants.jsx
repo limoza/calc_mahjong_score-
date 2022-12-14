@@ -1,8 +1,8 @@
 export const QuestionList = {
   naki: {
     id: 'naki',
-    title: 'ポン、チーをしていますか？',
-    description: 'ポン、チーをしていますか？',
+    title: 'ポン、チー、明槓をしていますか？',
+    description: 'ポン、チー、明槓をしていますか？',
     choices: ['はい', 'いいえ'],
     values: ['yes', 'no'],
   },
@@ -287,7 +287,7 @@ export const yakus = [
     content: 'ツモ',
     yakuNumber: '1',
     explanationImage: 'common',
-    explanationText: `ポン・チーなどをせずに、ツモによって上がることで成立`,
+    explanationText: `ポン・チー・明槓をせずに、ツモによって上がることで成立`,
     annotationTexts: [],
   },
   {
