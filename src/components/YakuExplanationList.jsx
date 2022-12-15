@@ -33,6 +33,8 @@ export const YakuExplanationList = React.forwardRef(
                       src={imagePath()}
                       layout='fill'
                       objectFit='contain'
+                      width='100%'
+                      height='31'
                       alt={`${yaku.content}の上がりの形`}
                     />
                   </dd>
