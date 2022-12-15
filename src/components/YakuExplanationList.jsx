@@ -32,10 +32,10 @@ export const YakuExplanationList = React.forwardRef(
                     <Image
                       // className='!relative !h-full !w-full'
                       src={imagePath()}
-                      // layout='fill'
+                      layout='responsive'
                       objectFit='contain'
                       width='652'
-                      height='100'
+                      height='63'
                       unoptimized={true}
                       alt={`${yaku.content}の上がりの形`}
                     />
