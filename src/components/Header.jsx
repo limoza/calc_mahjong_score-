@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { SiteTitle } from '@/components/SiteTitle'
+import Link from 'next/link'
 
 export const Header = React.memo(({}) => {
   const [IsMenuOpen, setIsMenuOpen] = useState(false)
@@ -41,13 +42,29 @@ export const Header = React.memo(({}) => {
       <div
         className={`${
           IsMenuOpen ? 'block' : 'hidden'
-        } absolute top-12 right-0 z-10 min-w-[13rem] bg-neutral-50 drop-shadow`}
+        } absolute top-12 right-0 z-10 w-full bg-neutral-50 drop-shadow`}
       >
-        <ul className=''>
-          <li className='border-b border-dashed border-neutral-300 p-2 text-right'>
-            役解説
+        <ul className='border-b border-green-700'>
+          <li className='border-b border-dashed border-neutral-300'>
+            <Link href='/'>
+              <a className='block py-3 px-4'>かんたん麻雀点数計算</a>
+            </Link>
           </li>
-          <li>お問合せ</li>
+          <li className='border-b border-dashed border-neutral-300'>
+            <Link href='/yaku_explanation'>
+              <a className='block py-3 px-4'>画像で解説！麻雀の役一覧</a>
+            </Link>
+          </li>
+          <li className='border-b border-dashed border-neutral-300'>
+            <Link href='/privacy_policy'>
+              <a className='block py-3 px-4'>プライバシーポリシー</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='/inquiry'>
+              <a className='block py-3 px-4'>お問合せ</a>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
