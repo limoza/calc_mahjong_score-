@@ -8,6 +8,7 @@ import { Title } from '@/components/Title'
 import { TitleButton } from '@/components/TitleButton'
 import { Result } from '@/components/Result'
 import { Modal } from '@/components/Modal'
+import { Footer } from '@/components/Footer'
 
 import { useRecoilValue, useRecoilState } from 'recoil'
 import {
@@ -76,10 +77,10 @@ const Home = React.memo(() => {
   return (
     <>
       <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
-      <Header />
       <main
         className={`${modalOpen.IsOpen && `fixed`} bg-gray-100 text-gray-900`}
       >
+        <Header />
         <Card>
           <Title title={QuestionList.oya.title} />
           <AgariStatusList
@@ -120,6 +121,7 @@ const Home = React.memo(() => {
         })}
         <Result title='点数' />
       </main>
+      <Footer />
     </>
   )
 })
