@@ -56,16 +56,16 @@ const setYakuType = (arg) => {
   return yakuType.length < 5 ? yakuType : ['normal']
 }
 
-const getYakuNumber = (arg) => {
-  console.log(arg)
-  // yakus.map((yaku) => {
-  //   return yaku.id === arg.id
-  //     ? {
-  //         yakuNumber: yaku.yakuNumber,
-  //       }
-  //     : false
-  // })
-}
+// const getYakuNumber = (arg) => {
+//   console.log(arg)
+//   // yakus.map((yaku) => {
+//   //   return yaku.id === arg.id
+//   //     ? {
+//   //         yakuNumber: yaku.yakuNumber,
+//   //       }
+//   //     : false
+//   // })
+// }
 
 export const yakuList = atom({
   key: 'yakuList',

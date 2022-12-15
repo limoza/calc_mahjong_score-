@@ -27,15 +27,13 @@ export const YakuExplanationList = React.forwardRef(
                   <dt className='text-2xl font-bold text-green-700'>
                     {yaku.content}
                   </dt>
-                  {/* <dd className='mt-3 [&>span]:!relative '> */}
                   <dd className='mt-3 '>
                     <Image
-                      // className='!relative !h-full !w-full'
                       src={imagePath()}
                       layout='responsive'
                       objectFit='contain'
                       width='652'
-                      height='63'
+                      height='71'
                       unoptimized={true}
                       alt={`${yaku.content}の上がりの形`}
                     />
