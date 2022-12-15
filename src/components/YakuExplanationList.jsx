@@ -34,7 +34,7 @@ export const YakuExplanationList = React.forwardRef(
                       objectFit='contain'
                       width='652'
                       height='71'
-                      // unoptimized={true}
+                      unoptimized={true}
                       alt={`${yaku.content}の上がりの形`}
                     />
                   </dd>
