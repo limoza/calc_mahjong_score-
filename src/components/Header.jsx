@@ -5,9 +5,9 @@ import Link from 'next/link'
 export const Header = React.memo(({}) => {
   const [IsMenuOpen, setIsMenuOpen] = useState(false)
   return (
-    <div className='flex items-center justify-between bg-green-700 p-2.5'>
+    <div className='flex items-center justify-between bg-green-700 px-2'>
       <SiteTitle />
-      <div onClick={() => setIsMenuOpen((prev) => !prev)}>
+      <div className='p-2.5' onClick={() => setIsMenuOpen((prev) => !prev)}>
         {IsMenuOpen ? (
           <svg
             className='m-auto h-6 w-6 text-white'

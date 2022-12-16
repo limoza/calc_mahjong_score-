@@ -41,7 +41,7 @@ export const YakuButton = React.memo(
       <label
         className={`${labelColor(
           yakuItem,
-        )} block rounded border py-2 px-4 text-sm drop-shadow-sm`}
+        )} block h-11 rounded border py-3 px-4 text-sm drop-shadow-sm`}
       >
         <input
           id={yakuItem.id}
@@ -82,7 +82,7 @@ export const RadioButton = React.memo(
       <label
         className={`${useChangeRadioLabelColor(IsChecked)} ${setSpecialStyle(
           index,
-        )} block border py-2 px-4 text-sm drop-shadow-sm`}
+        )} block h-11 border py-3 px-4 text-sm drop-shadow-sm`}
       >
         <input
           className='hidden'
