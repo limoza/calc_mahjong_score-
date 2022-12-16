@@ -30,10 +30,9 @@ export const YakuExplanationList = React.forwardRef(
                   <dd className='mt-3 '>
                     <Image
                       src={imagePath()}
-                      // layout='responsive'
-                      objectFit='contain'
-                      width='652'
-                      height='71'
+                      objectFit={'contain'}
+                      width={652}
+                      height={75}
                       unoptimized={true}
                       alt={`${yaku.content}の上がりの形`}
                     />
