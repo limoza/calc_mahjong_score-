@@ -25,18 +25,12 @@ export default class Document extends NextDocument {
             property='og:description'
             content='【充実の役解説付き】誰でも”かんたん”に麻雀の点数計算ができる！上がった役を一覧から選ぶだけ！親、子それぞれの点数が簡単に分かる！ご利用は完全無料！画像付きで充実の役解説も！'
           />
-          <meta
-            property='og:url'
-            content='https://calc-mahjong-score.vercel.app/'
-          />
+          <meta property='og:url' content='https://mascor.jp/' />
           <meta property='og:type' content='website' />
-          <meta
-            property='og:image'
-            content='https://calc-mahjong-score.vercel.app/favicons/apple-touch-icon.png'
-          />
+          <meta property='og:image' content='https://mascor.jp/ogp.png' />
           <meta property='og:site_name' content='かんたん麻雀点数計算' />
           <meta property='og:locale' content='ja_JP' />
-          <link href='https://calc-mahjong-score.vercel.app/' rel='canonical' />
+          <link href='https://mascor.jp/' rel='canonical' />
           <link
             rel='apple-touch-icon'
             sizes='180x180'
