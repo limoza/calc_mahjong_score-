@@ -16,7 +16,7 @@ export const YakuExplanationList = React.forwardRef(
                 const imageName = yaku.explanationImage
                   ? yaku.explanationImage
                   : yaku.id
-                return `/images/${imageName}.png`
+                return `/images/yaku_explanation/${imageName}.png`
               }
 
               return (
