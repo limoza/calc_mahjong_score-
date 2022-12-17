@@ -1,4 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+// import { GA } from '@/components/ga'
 
 export default class Document extends NextDocument {
   render() {
@@ -50,11 +51,7 @@ export default class Document extends NextDocument {
           />
           <link rel='manifest' href='/favicons/manifest.json' />
           <meta name='theme-color' content='#ffffff' />
-          <script
-            async
-            src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5951124366489955'
-            crossorigin='anonymous'
-          ></script>
+          {/* <GA /> */}
         </Head>
         <body>
           <Main />
