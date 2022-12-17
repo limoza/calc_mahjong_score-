@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 export const Footer = React.memo(() => (
   <footer className='bg-gray-100 pt-5'>
