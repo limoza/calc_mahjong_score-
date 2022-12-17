@@ -1,15 +1,19 @@
+import { useEffect } from 'react'
 import { RecoilRoot } from 'recoil'
 import '@/styles/globals.scss'
-import { GA } from '@/components/ga'
-
-import usePageView from '@/hooks/usePageView'
+import TagManager from 'react-gtm-module'
 
 function MyApp({ Component, pageProps }) {
-  usePageView()
+  useEffect(() => {
+    TagManager.initialize({ gtmId: 'GTM-WV975LR' })
+  }, [])
+
+  useEffect(() => {
+    document.body.classList?.remove('loading')
+  }, [])
 
   return (
     <RecoilRoot>
-      <GA />
       <Component {...pageProps} />
     </RecoilRoot>
   )
