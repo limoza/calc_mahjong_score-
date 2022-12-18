@@ -1,5 +1,5 @@
 import { atom } from 'recoil'
-import { QuestionList, yakus } from '@/constants/constants'
+import { QuestionList } from '@/constants/constants'
 
 export const nakiStatus = atom({
   key: 'nakiStatus',
@@ -56,17 +56,6 @@ const setYakuType = (arg) => {
   return yakuType.length < 5 ? yakuType : ['normal']
 }
 
-// const getYakuNumber = (arg) => {
-//   console.log(arg)
-//   // yakus.map((yaku) => {
-//   //   return yaku.id === arg.id
-//   //     ? {
-//   //         yakuNumber: yaku.yakuNumber,
-//   //       }
-//   //     : false
-//   // })
-// }
-
 export const yakuList = atom({
   key: 'yakuList',
   default: [
@@ -74,10 +63,6 @@ export const yakuList = atom({
       id: 'reach',
       content: '立直',
       yakuNumber: '1',
-      // yakuNumber: ((arg) => {
-      //   console.log(this)
-      //   // return getYakuNumber(arg)
-      // })(this),
       IsChecked: false,
       yakuType: function () {
         return setYakuType(this)
@@ -96,6 +81,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `テンパイ時に「リーチ」と宣言し、場に1,000点棒を出すことで成立`,
+      annotationTexts: [],
     },
     {
       id: 'menzenchintsumo',
@@ -119,6 +107,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `ポン・チー・明槓をせずに、ツモによって上がることで成立`,
+      annotationTexts: [],
     },
     {
       id: 'ippatsu',
@@ -142,6 +133,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `リーチ宣言後の1巡目以内に、上がることで成立`,
+      annotationTexts: [`1巡目以内にポン・チー・明槓がされた場合不成立`],
     },
     {
       id: 'haku',
@@ -165,6 +159,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `白で刻子や槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'hatsu',
@@ -188,6 +184,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `發で刻子や槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'chun',
@@ -211,6 +209,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `中で刻子や槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'jikazehai',
@@ -234,6 +234,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `自風牌で刻子や槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'bakazehai',
@@ -257,6 +259,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `場風牌で刻子や槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'tanyao',
@@ -280,6 +284,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `2~8の牌のみで手牌を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'pinfu',
@@ -303,6 +309,11 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `4つのメンツをすべて順子で揃えると成立`,
+      annotationTexts: [
+        `頭は三元牌、場風牌、自風牌以外で揃える`,
+        `両面待ちの場合のみ成立`,
+      ],
     },
     {
       id: 'ipeko',
@@ -326,6 +337,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `同じ種類の牌で、同じ順子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'haitei',
@@ -349,6 +362,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `局の最後の牌でツモで上がると成立`,
+      annotationTexts: [],
     },
     {
       id: 'hotei',
@@ -372,6 +388,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `局の最後の打牌で上がると成立`,
+      annotationTexts: [],
     },
     {
       id: 'rinshankaiho',
@@ -395,6 +414,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `カンした時にツモる嶺上牌で上がると成立`,
+      annotationTexts: ['槍槓でロンされた場合は不成立'],
     },
     {
       id: 'chankan',
@@ -418,6 +440,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `他家が加槓した牌で上がると成立`,
+      annotationTexts: [],
     },
     {
       id: 'dora',
@@ -443,6 +468,12 @@ export const yakuList = atom({
       kuisagari: '0',
       IsPlusDisabled: false,
       IsMinusDisabled: true,
+      explanationImage: 'common',
+      explanationText: `ドラ牌を持っていることで成立`,
+      annotationTexts: [
+        `ドラ牌1枚ごとに1翻つく`,
+        `ドラは役ではないため、ドラのみで上がれない`,
+      ],
     },
     {
       id: 'doubleReach',
@@ -466,6 +497,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `鳴きのない1巡目でリーチをかけることで成立`,
+      annotationTexts: [`リーチをかける前に他家が鳴いた場合は不成立`],
     },
     {
       id: 'sanshokuDoujun',
@@ -489,6 +523,8 @@ export const yakuList = atom({
       },
       kuisagari: '1',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子のすべてで同じ数字の順子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'sanshokuDoko',
@@ -512,6 +548,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子のすべてで同じ数字の刻子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'toitoiho',
@@ -535,6 +573,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `4つの面子をすべて刻子、もしくは槓子で揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'chitoitsu',
@@ -558,6 +598,10 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `対子を7つ揃えることで成立`,
+      annotationTexts: [
+        `同牌が4枚の場合、2つの対子と見なされず、七対子は不成立`,
+      ],
     },
     {
       id: 'ikkitsukan',
@@ -581,6 +625,8 @@ export const yakuList = atom({
       },
       kuisagari: '1',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子のいずれか1種で、[123][456][789]の順子を揃えることで成立`,
+      annotationTexts: [],
     },
     {
       id: 'chanta',
@@ -604,6 +650,8 @@ export const yakuList = atom({
       },
       kuisagari: '1',
       IsDisabled: false,
+      explanationText: `面子と頭のすべてで、1,9牌もしくは字牌で含めて揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'sananko',
@@ -627,6 +675,11 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `暗刻を3つ揃えると成立`,
+      annotationTexts: [
+        `鳴いていいのは残り1面子のみ`,
+        `3つ目の刻子をロンで揃えた場合は不成立`,
+      ],
     },
     {
       id: 'shosangen',
@@ -650,6 +703,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `白・發・中のいずれか1種で頭、残り2種で刻子もしくは槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'honroto',
@@ -673,6 +728,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `面子と頭のすべてで、1,9牌もしくは字牌で揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'sankantsu',
@@ -696,6 +753,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `槓子を3つ揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'honitsu',
@@ -719,6 +778,8 @@ export const yakuList = atom({
       },
       kuisagari: '2',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子のいずれか1種のみと字牌で揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'ryanpeko',
@@ -742,6 +803,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `同じ種類の牌で、同じ順子を2面子揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'junchan',
@@ -765,6 +828,9 @@ export const yakuList = atom({
       },
       kuisagari: '2',
       IsDisabled: false,
+      yakuNumber: '3',
+      explanationText: `面子と頭のすべてで、1,9牌を含めて揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'chinitsu',
@@ -788,6 +854,8 @@ export const yakuList = atom({
       },
       kuisagari: '5',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子のいずれか1種のみで揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'suanko',
@@ -811,6 +879,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `4つの面子をすべて暗刻で揃えると成立`,
+      annotationTexts: [`単騎待ちでない場合はツモ上がりのみ成立`],
     },
     {
       id: 'daisangen',
@@ -834,6 +904,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `白・發・中のすべてを刻子、もしくは槓子で揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'kokushimuso',
@@ -857,6 +929,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子の1,9牌と、字牌を各1枚揃え、いずれか一種類のみ2枚揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'shosushi',
@@ -880,6 +954,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `東,南,西,北のいずれか1種で頭、残り3種で刻子もしくは槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'daisushi',
@@ -903,6 +979,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `東,南,西,北のすべてを刻子、もしくは槓子を揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'tsuiso',
@@ -926,6 +1004,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `字牌のみで揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'chinroto',
@@ -949,6 +1029,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `面子と頭のすべてで、1,9牌のみで揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'ryuiso',
@@ -972,6 +1054,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `索子の2,3,4,6,8と發のみで揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'sukantsu',
@@ -995,6 +1079,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `4つの面子をすべて槓子で揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'churenpoto',
@@ -1018,6 +1104,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子のいずれか1種で、1,9牌を3枚ずつ、2~8を1枚ずつ揃える。さらに、1~9牌の1種類のみ、1枚追加で揃えると成立`,
+      annotationTexts: [],
     },
     {
       id: 'chiho',
@@ -1041,6 +1129,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `自分が子の場合、第1回目のツモで上がると成立`,
+      annotationTexts: [`自身のツモより先に他家が鳴いた場合は不成立`],
     },
     {
       id: 'tenho',
@@ -1064,6 +1155,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationImage: 'common',
+      explanationText: `自分が親の場合、配牌時に上がっていると成立`,
+      annotationTexts: [],
     },
     {
       id: 'suanko_daisangen',
@@ -1087,6 +1181,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '四暗刻に、白,發,中の暗刻を揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'suanko_tsuiso',
@@ -1110,6 +1206,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '四暗刻を字牌のみで揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'tsuiso_daisangen',
@@ -1133,6 +1231,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '白,發,中の刻子、もしくは槓子と、字牌のみで揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'tsuiso_shosushi',
@@ -1156,6 +1256,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText:
+        '東,南,西,北のいずれか1種で頭、残り3種で刻子もしくは槓子を揃え、字牌のみで揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'tsuiso_daisushi',
@@ -1179,6 +1282,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText:
+        '東,南,西,北のすべてを刻子、もしくは槓子を揃え、字牌のみで揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'ryuiso_suanko',
@@ -1202,6 +1308,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '索子の2,3,4,6,8と發のみで暗刻を揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'ryuiso_sukantsu',
@@ -1225,6 +1333,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '索子の2,3,4,6,8と發のみで槓子を揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'daisushi_sukantsu',
@@ -1248,6 +1358,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText:
+        '東,南,西,北のすべてを槓子で揃え、字牌のみで揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'chinroto_suanko',
@@ -1271,6 +1384,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '1,9牌のみで4つ暗刻を揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'chinroto_sukantsu',
@@ -1294,6 +1409,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '1,9牌のみで4つ槓子を揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'sukantsu_suanko',
@@ -1317,6 +1434,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '暗槓を4つ揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'sukantsu_tsuiso',
@@ -1340,6 +1459,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '字牌のみで、4つの面子をすべて槓子で揃えると成立',
+      annotationTexts: [],
     },
     {
       id: 'suankoTanki',
@@ -1363,6 +1484,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '四暗刻の単騎待ちで上がると成立',
+      annotationTexts: [`単騎待ちの場合は、ロン上がりでも成立`],
     },
     {
       id: 'kokushimusoJusanmenmachi',
@@ -1386,6 +1509,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: `萬子、筒子、索子の1,9牌と、字牌を各1枚揃えテンパイした状態で上がると成立`,
+      annotationTexts: [],
     },
     {
       id: 'junseiChurenpoto',
@@ -1409,6 +1534,9 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText:
+        '萬子、筒子、索子のいずれか1種で、1,9牌を3枚ずつ、2~8を1枚ずつ揃えテンパイした状態で上がると成立',
+      annotationTexts: [],
     },
     {
       id: 'hatsunashiRyuiso',
@@ -1432,6 +1560,8 @@ export const yakuList = atom({
       },
       kuisagari: '0',
       IsDisabled: false,
+      explanationText: '索子の2,3,4,6,8のみで揃えると成立',
+      annotationTexts: [],
     },
   ],
 })
