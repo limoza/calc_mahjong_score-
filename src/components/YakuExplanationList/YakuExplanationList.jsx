@@ -1,15 +1,18 @@
 import React from 'react'
+import { useRecoilValue, useRecoilState } from 'recoil'
 import { yakus } from '@/constants/constants'
+import { yakuList } from '@/states/atoms/stateAtom'
 import { Title } from '@/components/Title'
 import Image from 'next/image'
 
 export const YakuExplanationList = React.forwardRef(
   ({ yakuNumber, yakuAlias }, ref) => {
+    const getYakuList = useRecoilValue(yakuList)
     return (
       <>
         <Title title={`${yakuAlias}の解説`} ref={ref} />
         <dl>
-          {yakus
+          {getYakuList
             .filter((yaku) => yaku.yakuNumber === yakuNumber)
             .map((yaku) => {
               const imagePath = () => {
@@ -24,8 +27,56 @@ export const YakuExplanationList = React.forwardRef(
                   key={yaku.id}
                   className='mt-8 border-b border-dotted border-gray-300 pb-8'
                 >
-                  <dt className='text-2xl font-bold text-green-700'>
-                    {yaku.content}
+                  <dt className='flex items-center text-2xl font-bold text-green-700'>
+                    <p className='mr-2'>{yaku.content}</p>
+                    {yaku.disabledValues.nakiDisabled ? (
+                      <p className='ml-1 flex items-center rounded-full bg-red-700 px-2 py-0.5 text-sm font-bold text-white'>
+                        鳴き
+                        <svg
+                          className='h-4 w-4 text-white'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='3'
+                            d='M6 18L18 6M6 6l12 12'
+                          />
+                        </svg>
+                      </p>
+                    ) : (
+                      <>
+                        <p className='ml-1 flex items-center rounded-full bg-green-700 px-2 py-0.5 text-sm font-bold text-white'>
+                          鳴き
+                          <svg
+                            className='ml-0.5 h-4 w-4 text-white'
+                            width='24'
+                            height='24'
+                            viewBox='0 0 24 24'
+                            strokeWidth='3'
+                            stroke='currentColor'
+                            fill='none'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                          >
+                            {' '}
+                            <path stroke='none' d='M0 0h24v24H0z' />{' '}
+                            <circle cx='12' cy='12' r='9' />
+                          </svg>
+                        </p>
+                        {yaku.kuisagari === '0' || (
+                          <p className='ml-1 rounded-full bg-green-700 px-2 py-0.5 text-sm font-bold text-white'>
+                            喰下り
+                            <span className='mr-0.5 ml-0.5'>
+                              {yaku.kuisagari}
+                            </span>
+                            翻
+                          </p>
+                        )}
+                      </>
+                    )}
                   </dt>
                   <dd className='mt-3 '>
                     <Image
