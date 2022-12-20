@@ -880,7 +880,7 @@ export const yakuList = atom({
       kuisagari: '0',
       IsDisabled: false,
       explanationText: `4つの面子をすべて暗刻で揃えると成立`,
-      annotationTexts: [`単騎待ちでない場合はツモ上がりのみ成立`],
+      annotationTexts: [`単騎待ちでない場合はツモあがりのみ成立`],
     },
     {
       id: 'daisangen',
@@ -1485,7 +1485,7 @@ export const yakuList = atom({
       kuisagari: '0',
       IsDisabled: false,
       explanationText: '四暗刻の単騎待ちで上がると成立',
-      annotationTexts: [`単騎待ちの場合は、ロン上がりでも成立`],
+      annotationTexts: [`単騎待ちの場合は、ロンあがりでも成立`],
     },
     {
       id: 'kokushimusoJusanmenmachi',

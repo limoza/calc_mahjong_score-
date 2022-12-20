@@ -85,7 +85,7 @@ export const YakuExplanationList = React.forwardRef(
                       width={652}
                       height={75}
                       unoptimized={true}
-                      alt={`${yaku.content}の上がりの形`}
+                      alt={`${yaku.content}のあがりの形`}
                     />
                   </dd>
                   <dd className='mt-3'>

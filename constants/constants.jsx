@@ -8,8 +8,8 @@ export const QuestionList = {
   },
   ronTsumo: {
     id: 'ronTsumo',
-    title: 'ツモ、ロンどちらで上がりましたか？',
-    description: 'ツモ、ロンどちらで上がりましたか？',
+    title: 'ツモ、ロンどちらであがりましたか？',
+    description: 'ツモ、ロンどちらであがりましたか？',
     choices: ['ツモ', 'ロン'],
     values: ['tsumo', 'ron'],
   },
