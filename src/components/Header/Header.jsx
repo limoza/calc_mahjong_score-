@@ -7,7 +7,10 @@ export const Header = React.memo(({}) => {
   return (
     <div className='flex items-center justify-between bg-green-700 px-2'>
       <SiteTitle />
-      <div className='p-2.5' onClick={() => setIsMenuOpen((prev) => !prev)}>
+      <div
+        className='cursor-pointer p-2.5'
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+      >
         {IsMenuOpen ? (
           <svg
             className='m-auto h-6 w-6 text-white'

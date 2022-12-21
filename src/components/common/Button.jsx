@@ -4,7 +4,7 @@ export const TextButton = React.memo(
   ({ children, clickHandler, SetIsOpen, yakuNumber, yakuAlias }) => {
     return (
       <button
-        className={'text-sm font-bold text-blue-600'}
+        className={'cursor-pointer text-sm font-bold text-blue-600'}
         onClick={() => clickHandler(SetIsOpen, yakuNumber, yakuAlias)}
       >
         {children}
@@ -19,7 +19,7 @@ export const CountButton = React.memo(
       <button
         className={`${labelColor(
           disabled,
-        )} ml-3 h-11 w-11 rounded border border-gray-300 text-sm drop-shadow-sm`}
+        )} ml-3 h-11 w-11 cursor-pointer rounded border border-gray-300 text-sm drop-shadow-sm`}
         onClick={handleClick}
         disabled={disabled}
       >
@@ -41,7 +41,7 @@ export const YakuButton = React.memo(
       <label
         className={`${labelColor(
           yakuItem,
-        )} block h-11 rounded border py-3 px-4 text-sm drop-shadow-sm`}
+        )} block h-11 cursor-pointer rounded border py-3 px-4 text-sm drop-shadow-sm`}
       >
         <input
           id={yakuItem.id}
@@ -82,7 +82,7 @@ export const RadioButton = React.memo(
       <label
         className={`${useChangeRadioLabelColor(IsChecked)} ${setSpecialStyle(
           index,
-        )} block h-11 border py-3 px-4 text-sm drop-shadow-sm`}
+        )} block h-11 cursor-pointer border py-3 px-4 text-sm drop-shadow-sm`}
       >
         <input
           className='hidden'

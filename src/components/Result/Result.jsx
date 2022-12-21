@@ -84,7 +84,7 @@ export const Result = ({ title }) => {
       )}
 
       {selectedYakuList.length > 0 && (
-        <details className='mt-4 rounded bg-neutral-50 text-sm'>
+        <details className='mt-4 cursor-pointer rounded bg-neutral-50 text-sm'>
           <summary className='py-3 text-right'>選択した役を見る</summary>
           <ul>
             {selectedYakuList.map((SelectedItem) => {
