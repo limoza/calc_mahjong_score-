@@ -75,10 +75,12 @@ const Home = React.memo(() => {
   ])
 
   return (
-    <>
+    <div className='m-auto max-w-md'>
       <Modal modalOpen={modalOpen} SetIsOpen={SetIsOpen} />
       <main
-        className={`${modalOpen.IsOpen && `fixed`} bg-gray-100 text-gray-900`}
+        className={`${
+          modalOpen.IsOpen && `fixed`
+        } m-auto max-w-md bg-gray-100 text-gray-900`}
       >
         <Header />
         <Card>
@@ -122,7 +124,7 @@ const Home = React.memo(() => {
         <Result title='点数' />
       </main>
       <Footer />
-    </>
+    </div>
   )
 })
 

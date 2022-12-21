@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 const Inquiry = React.memo(() => {
   return (
     <>
-      <main className={`h-[94vh] bg-gray-100 text-gray-900`}>
+      <main className={`m-auto h-[94vh] max-w-md bg-gray-100 text-gray-900`}>
         <Header />
         <Card>
           <h1 className='text-2xl font-bold'>お問合せ</h1>

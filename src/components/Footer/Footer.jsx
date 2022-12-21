@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Footer = React.memo(() => (
-  <footer className='bg-gray-100 pt-5'>
+  <footer className='m-auto max-w-md bg-gray-100 pt-5'>
     <p className='flex items-center justify-center bg-green-700 py-1 text-center text-white'>
       <svg
         className='mr-1 h-4 w-4 text-white'

@@ -42,7 +42,7 @@ export const Header = React.memo(({}) => {
       <div
         className={`${
           IsMenuOpen ? 'block' : 'hidden'
-        } absolute top-12 right-0 z-10 w-full bg-neutral-50 drop-shadow`}
+        } absolute top-12 right-0 left-0 z-10 m-auto w-full max-w-md bg-neutral-50 drop-shadow`}
       >
         <ul className='border-b border-green-700'>
           <li className='border-b border-dashed border-neutral-300'>

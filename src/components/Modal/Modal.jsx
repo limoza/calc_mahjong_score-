@@ -10,11 +10,13 @@ export const Modal = React.memo(({ modalOpen, SetIsOpen }) => {
   return (
     <div
       className={
-        modalOpen.IsOpen ? 'fixed z-10 h-full w-full' : 'relative hidden'
+        modalOpen.IsOpen
+          ? 'fixed z-10 m-auto h-full w-full max-w-md'
+          : 'relative hidden'
       }
     >
       <div
-        className='fixed inset-0 z-20 h-full w-full bg-gray-900 opacity-60'
+        className='fixed inset-0 z-20 m-auto h-full w-full max-w-md bg-gray-900 opacity-60'
         onClick={() => {
           SetIsOpen((prev) => !prev.IsOpen)
           scrollTop()

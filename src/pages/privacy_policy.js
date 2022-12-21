@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer'
 const PrivacyPolicy = React.memo(() => {
   return (
     <>
-      <main className={`bg-gray-100 text-gray-900`}>
+      <main className={`m-auto max-w-md bg-gray-100 text-gray-900`}>
         <Header />
         <Card>
           <h1 className='text-2xl font-bold'>プライバシーポリシー</h1>
